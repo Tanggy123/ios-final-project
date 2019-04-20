@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1388D96A2266B694008C8656 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1388D9692266B694008C8656 /* GoogleService-Info.plist */; };
 		2F7C3B7F794DB133B04AE982 /* Pods_Final_project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FC19B59FC069B507B8D3E3 /* Pods_Final_project.framework */; };
+		BD08ED5F226AE46F00D8AEAA /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD08ED5D226AE46B00D8AEAA /* DemoCell.swift */; };
+		BD08ED60226AE46F00D8AEAA /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD08ED5E226AE46F00D8AEAA /* FoldingCell.swift */; };
+		BD08ED62226AE47B00D8AEAA /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD08ED61226AE47B00D8AEAA /* MainTableViewController.swift */; };
 		BD1C4219225C21C200F3747D /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1C4218225C21C200F3747D /* RecipeViewController.swift */; };
 		BD1C421B225C21D200F3747D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1C421A225C21D200F3747D /* MapViewController.swift */; };
 		BD1C421D225C21DD00F3747D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1C421C225C21DD00F3747D /* AccountViewController.swift */; };
@@ -27,6 +30,9 @@
 		18FC19B59FC069B507B8D3E3 /* Pods_Final_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Final_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E6139081BD90F40E2E4DE9E /* Pods-Final project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Final project/Pods-Final project.debug.xcconfig"; sourceTree = "<group>"; };
 		9FB1CEA6C2B96621A5BE1C4D /* Pods-Final project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Final project/Pods-Final project.release.xcconfig"; sourceTree = "<group>"; };
+		BD08ED5D226AE46B00D8AEAA /* DemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
+		BD08ED5E226AE46F00D8AEAA /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
+		BD08ED61226AE47B00D8AEAA /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		BD1C4218225C21C200F3747D /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		BD1C421A225C21D200F3747D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		BD1C421C225C21DD00F3747D /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -71,19 +77,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BD08ED5C226AE35A00D8AEAA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		BD1C4215225C216800F3747D /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				BD649762225C0CAA00F6D83E /* AppDelegate.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		BD1C4216225C217300F3747D /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		BD1C4217225C217700F3747D /* Controller */ = {
@@ -93,6 +100,9 @@
 				BD1C4218225C21C200F3747D /* RecipeViewController.swift */,
 				BD1C421A225C21D200F3747D /* MapViewController.swift */,
 				BDA0A5F7225F9A100062D31A /* MapDetailViewController.swift */,
+				BD08ED61226AE47B00D8AEAA /* MainTableViewController.swift */,
+				BD08ED5D226AE46B00D8AEAA /* DemoCell.swift */,
+				BD08ED5E226AE46F00D8AEAA /* FoldingCell.swift */,
 				BDA0A5F5225F8EA10062D31A /* RecipeDetailViewController.swift */,
 				BD1C421E225C24F400F3747D /* EventDetailViewController.swift */,
 				BD1C421C225C21DD00F3747D /* AccountViewController.swift */,
@@ -121,8 +131,8 @@
 		BD649761225C0CAA00F6D83E /* Final project */ = {
 			isa = PBXGroup;
 			children = (
+				BD08ED5C226AE35A00D8AEAA /* View */,
 				BD1C4217225C217700F3747D /* Controller */,
-				BD1C4216225C217300F3747D /* View */,
 				BD1C4215225C216800F3747D /* Model */,
 				BD649766225C0CAA00F6D83E /* Main.storyboard */,
 				1388D9692266B694008C8656 /* GoogleService-Info.plist */,
@@ -258,8 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD08ED62226AE47B00D8AEAA /* MainTableViewController.swift in Sources */,
 				BDA0A5F8225F9A100062D31A /* MapDetailViewController.swift in Sources */,
+				BD08ED60226AE46F00D8AEAA /* FoldingCell.swift in Sources */,
 				BD1C421F225C24F400F3747D /* EventDetailViewController.swift in Sources */,
+				BD08ED5F226AE46F00D8AEAA /* DemoCell.swift in Sources */,
 				BD649765225C0CAA00F6D83E /* EventViewController.swift in Sources */,
 				BDA0A5F6225F8EA10062D31A /* RecipeDetailViewController.swift in Sources */,
 				BD1C421D225C21DD00F3747D /* AccountViewController.swift in Sources */,
