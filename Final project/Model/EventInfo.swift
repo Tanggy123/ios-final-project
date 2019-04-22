@@ -10,4 +10,5 @@ import Foundation
 import FirebaseFirestore
 
 /* Variable to store event info. */
+//
 var Events: [Int:Dictionary<String, Any>] = [:]
