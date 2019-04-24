@@ -12,10 +12,12 @@
 		BD08ED5F226AE46F00D8AEAA /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD08ED5D226AE46B00D8AEAA /* DemoCell.swift */; };
 		BD08ED60226AE46F00D8AEAA /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD08ED5E226AE46F00D8AEAA /* FoldingCell.swift */; };
 		BD08ED62226AE47B00D8AEAA /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD08ED61226AE47B00D8AEAA /* MainTableViewController.swift */; };
-		BD1C4219225C21C200F3747D /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1C4218225C21C200F3747D /* RecipeViewController.swift */; };
 		BD1C421B225C21D200F3747D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1C421A225C21D200F3747D /* MapViewController.swift */; };
 		BD1C421D225C21DD00F3747D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1C421C225C21DD00F3747D /* AccountViewController.swift */; };
 		BD1C421F225C24F400F3747D /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1C421E225C24F400F3747D /* EventDetailViewController.swift */; };
+		BD5A2B03226FC2AA00D88CBD /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5A2B02226FC2AA00D88CBD /* RecipeViewController.swift */; };
+		BD5A2B05226FC4F100D88CBD /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5A2B04226FC4F100D88CBD /* RecipeTableViewCell.swift */; };
+		BD5A2B07226FC51800D88CBD /* RecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5A2B06226FC51800D88CBD /* RecipeCollectionViewCell.swift */; };
 		BD649763225C0CAA00F6D83E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD649762225C0CAA00F6D83E /* AppDelegate.swift */; };
 		BD649765225C0CAA00F6D83E /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD649764225C0CAA00F6D83E /* EventViewController.swift */; };
 		BD649768225C0CAA00F6D83E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD649766225C0CAA00F6D83E /* Main.storyboard */; };
@@ -33,10 +35,12 @@
 		BD08ED5D226AE46B00D8AEAA /* DemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
 		BD08ED5E226AE46F00D8AEAA /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
 		BD08ED61226AE47B00D8AEAA /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
-		BD1C4218225C21C200F3747D /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		BD1C421A225C21D200F3747D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		BD1C421C225C21DD00F3747D /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		BD1C421E225C24F400F3747D /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		BD5A2B02226FC2AA00D88CBD /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		BD5A2B04226FC4F100D88CBD /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		BD5A2B06226FC51800D88CBD /* RecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD64975F225C0CAA00F6D83E /* Final project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Final project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD649762225C0CAA00F6D83E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD649764225C0CAA00F6D83E /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
@@ -96,8 +100,10 @@
 		BD1C4217225C217700F3747D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BD5A2B02226FC2AA00D88CBD /* RecipeViewController.swift */,
+				BD5A2B04226FC4F100D88CBD /* RecipeTableViewCell.swift */,
+				BD5A2B06226FC51800D88CBD /* RecipeCollectionViewCell.swift */,
 				BD649764225C0CAA00F6D83E /* EventViewController.swift */,
-				BD1C4218225C21C200F3747D /* RecipeViewController.swift */,
 				BD1C421A225C21D200F3747D /* MapViewController.swift */,
 				BDA0A5F7225F9A100062D31A /* MapDetailViewController.swift */,
 				BD08ED61226AE47B00D8AEAA /* MainTableViewController.swift */,
@@ -269,15 +275,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD08ED62226AE47B00D8AEAA /* MainTableViewController.swift in Sources */,
+				BD5A2B03226FC2AA00D88CBD /* RecipeViewController.swift in Sources */,
 				BDA0A5F8225F9A100062D31A /* MapDetailViewController.swift in Sources */,
 				BD08ED60226AE46F00D8AEAA /* FoldingCell.swift in Sources */,
 				BD1C421F225C24F400F3747D /* EventDetailViewController.swift in Sources */,
+				BD5A2B05226FC4F100D88CBD /* RecipeTableViewCell.swift in Sources */,
 				BD08ED5F226AE46F00D8AEAA /* DemoCell.swift in Sources */,
 				BD649765225C0CAA00F6D83E /* EventViewController.swift in Sources */,
 				BDA0A5F6225F8EA10062D31A /* RecipeDetailViewController.swift in Sources */,
 				BD1C421D225C21DD00F3747D /* AccountViewController.swift in Sources */,
+				BD5A2B07226FC51800D88CBD /* RecipeCollectionViewCell.swift in Sources */,
 				BD649763225C0CAA00F6D83E /* AppDelegate.swift in Sources */,
-				BD1C4219225C21C200F3747D /* RecipeViewController.swift in Sources */,
 				BD1C421B225C21D200F3747D /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
