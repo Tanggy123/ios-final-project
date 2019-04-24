@@ -297,10 +297,13 @@
                         <viewLayoutGuide key="safeArea" id="9dZ-AO-7va"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="dxh-PP-X3X"/>
+                    <connections>
+                        <segue destination="CCf-2C-gDM" kind="show" id="q6O-bD-gTi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2c-yZ-ebn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800.79999999999995" y="1811.2443778110946"/>
+            <point key="canvasLocation" x="801" y="1810"/>
         </scene>
         <!--Map Detail View Controller-->
         <scene sceneID="wDU-cj-iJU">

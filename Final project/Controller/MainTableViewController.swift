@@ -22,6 +22,7 @@
 // THE SOFTWARE.
 
 import UIKit
+import Firebase
 
 class MainTableViewController: UITableViewController {
 
@@ -36,6 +37,22 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        let db = Firestore.firestore()
+        for index in 0...2 {
+            let event = db.collection("Events").document("Event" + String(index))
+            event.getDocument {
+                (document, error) in
+                if let doc = document, doc.exists {
+                    if let data = doc.data() {
+                        Events[index] = data
+                        print(data)
+                        }
+                } else {
+                        print("Document does not exist")
+                }
+            }
+
+        }
     }
 
     private func setup() {
@@ -86,6 +103,9 @@ extension MainTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as! FoldingCell
+//        if let event = Events[indexPath.row] {
+//                cell.eventTitleLabel.text = event["EventName"] as String?
+//        } else {return UITableViewCell()}
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
         cell.durationsForExpandedState = durations
         cell.durationsForCollapsedState = durations
