@@ -123,6 +123,22 @@ extension MainTableViewController {
             }
             if let address = event["Address"] as? String {
                 cell.eventAddressLabel.text = address
+                cell.openAddressLabel.text = address
+            }
+            if let timestamp = event["Time"] as? Timestamp {
+                let date = timestamp.dateValue()
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "E MMM dd, yyyy"
+                dateFormatter.timeZone = NSTimeZone.local
+                cell.closedEventDateLabel.text = dateFormatter.string(from: date)
+                cell.openEventDateLabel.text = dateFormatter.string(from: date)
+                dateFormatter.dateFormat = "h:mm a"
+                cell.closedEventTimeLabel.text = dateFormatter.string(from: date)
+                cell.openEventTimeLabel.text = dateFormatter.string(from: date)
+            }
+            if let type = event["EventType"] as? String {
+                cell.closedEventTypeLabel.text = type
+                cell.openEventTypeLabel.text = type
             }
         }
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]

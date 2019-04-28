@@ -10,12 +10,17 @@ import UIKit
 
 class DemoCell: FoldingCell {
 
-    @IBOutlet var closeNumberLabel: UILabel!
+    @IBOutlet weak var closedEventDateLabel: UILabel!
+    @IBOutlet weak var closedEventTimeLabel: UILabel!
+    @IBOutlet weak var closedEventTypeLabel: UILabel!
     @IBOutlet weak var openEventTitleLabel: UILabel!
+    @IBOutlet weak var openEventDateLabel: UILabel!
+    @IBOutlet weak var openEventTimeLabel: UILabel!
+    @IBOutlet weak var openAddressLabel: UILabel!
+    @IBOutlet weak var openEventTypeLabel: UILabel!
     
     var number: Int = 0 {
         didSet {
-            closeNumberLabel.text = String(number)
         }
     }
 
