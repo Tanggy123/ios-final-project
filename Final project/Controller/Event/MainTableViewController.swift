@@ -81,7 +81,6 @@ class MainTableViewController: UITableViewController {
             if let dest = segue.destination as? EventDetailViewController {
                 if let event = Events[tappedCellNum] {
                     if let eventTitle = event["EventName"] as? String {
-                        print(eventTitle)
                         dest.eventName = eventTitle
                     }
                 }
