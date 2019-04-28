@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YoZ-7c-xhL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YoZ-7c-xhL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -361,6 +361,9 @@
                         <viewLayoutGuide key="safeArea" id="Rq3-bs-kAa"/>
                     </view>
                     <size key="freeformSize" width="375" height="1000"/>
+                    <connections>
+                        <outlet property="eventTitle" destination="4bF-aa-0xp" id="SuO-2c-7Bh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBb-yb-Fxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -656,25 +659,15 @@
                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Optional Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6F6-Nf-w5E">
-                                                                    <rect key="frame" x="430.5" y="0.0" width="117.5" height="49"/>
-                                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
-                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.36470588240000001" green="0.29411764709999999" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstItem="6F6-Nf-w5E" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Qsw-n0-Tra" secondAttribute="leading" constant="20" symbolic="YES" id="5tj-LM-T3a"/>
                                                                 <constraint firstAttribute="height" constant="49" id="8Mb-ow-xz0"/>
                                                                 <constraint firstItem="A1A-Zg-Gbk" firstAttribute="centerY" secondItem="Qsw-n0-Tra" secondAttribute="centerY" id="HvW-wO-eB7"/>
-                                                                <constraint firstItem="6F6-Nf-w5E" firstAttribute="top" secondItem="Qsw-n0-Tra" secondAttribute="top" id="IZs-c2-NBy"/>
                                                                 <constraint firstAttribute="bottom" secondItem="wrC-Ea-IAJ" secondAttribute="bottom" id="Nv5-Sz-rzb"/>
                                                                 <constraint firstAttribute="trailing" secondItem="wrC-Ea-IAJ" secondAttribute="trailing" id="PoF-L3-z34"/>
                                                                 <constraint firstItem="A1A-Zg-Gbk" firstAttribute="leading" secondItem="Qsw-n0-Tra" secondAttribute="leading" constant="14" id="STV-7T-zo2"/>
                                                                 <constraint firstItem="wrC-Ea-IAJ" firstAttribute="leading" secondItem="Qsw-n0-Tra" secondAttribute="leading" id="aPJ-ZC-1dX"/>
-                                                                <constraint firstAttribute="trailing" secondItem="6F6-Nf-w5E" secondAttribute="trailing" constant="12" id="p0d-Sp-V89"/>
-                                                                <constraint firstAttribute="bottom" secondItem="6F6-Nf-w5E" secondAttribute="bottom" id="q1b-L6-SeV"/>
                                                                 <constraint firstItem="wrC-Ea-IAJ" firstAttribute="top" secondItem="Qsw-n0-Tra" secondAttribute="top" id="zY7-wX-nhS"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
@@ -807,7 +800,7 @@
                                                             <rect key="frame" x="79" y="50.5" width="97" height="17"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="28y-E8-2MS" userLabel="photo">
-                                                            <rect key="frame" x="22" y="28" width="49" height="49"/>
+                                                            <rect key="frame" x="22" y="28" width="49.000000000000028" height="49.000000000000028"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="49" id="N7I-bs-7qK"/>
                                                                 <constraint firstAttribute="width" constant="49" id="kPh-N2-3Rn"/>
@@ -1037,7 +1030,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
                                                                 <action selector="buttonHandler:" destination="Fdx-XO-7fh" eventType="touchUpInside" id="u4F-Mn-6kh"/>
-                                                                <segue destination="Iln-0P-Zku" kind="show" id="ar0-21-jc5"/>
+                                                                <segue destination="Iln-0P-Zku" kind="show" id="fBW-nV-gfw"/>
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 people have sent a request" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idp-zF-jLE">
@@ -1113,7 +1106,7 @@
                                     <outlet property="eventTitleLabel" destination="DgA-lh-eLz" id="0jZ-YO-xnj"/>
                                     <outlet property="foregroundView" destination="IYw-qz-OJC" id="UKm-Ay-uLM"/>
                                     <outlet property="foregroundViewTop" destination="GjG-5G-j6M" id="lP5-D2-gXN"/>
-                                    <outlet property="openNumberLabel" destination="wrC-Ea-IAJ" id="gXt-iT-MfO"/>
+                                    <outlet property="openEventTitleLabel" destination="wrC-Ea-IAJ" id="PIG-6S-ebT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1128,14 +1121,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ts-K0-BZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2067" y="27"/>
+            <point key="canvasLocation" x="2032" y="1"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow" width="16" height="25"/>
         <image name="burger" width="38" height="29"/>
         <image name="dots" width="14" height="84"/>
-        <image name="image" width="681" height="330"/>
+        <image name="image" width="340.5" height="165"/>
         <image name="photo" width="98" height="98"/>
         <image name="stars" width="97" height="17"/>
     </resources>

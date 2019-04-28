@@ -11,12 +11,11 @@ import UIKit
 class DemoCell: FoldingCell {
 
     @IBOutlet var closeNumberLabel: UILabel!
-    @IBOutlet var openNumberLabel: UILabel!
-
+    @IBOutlet weak var openEventTitleLabel: UILabel!
+    
     var number: Int = 0 {
         didSet {
             closeNumberLabel.text = String(number)
-            openNumberLabel.text = String(number)
         }
     }
 
@@ -37,6 +36,7 @@ class DemoCell: FoldingCell {
 extension DemoCell {
 
     @IBAction func buttonHandler(_: AnyObject) {
+        tappedCellNum = number
         print("tap")
     }
 }
