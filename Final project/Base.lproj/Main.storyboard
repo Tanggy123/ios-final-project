@@ -309,11 +309,11 @@
             <objects>
                 <viewController id="Iln-0P-Zku" customClass="EventDetailViewController" customModule="Final_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tlg-Vl-srf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="my2-l5-8av">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="887"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -325,15 +325,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rq3-bs-kAa"/>
                     </view>
-<<<<<<< HEAD
                     <size key="freeformSize" width="375" height="1000"/>
-                    <connections>
-                        <outlet property="eventTitle" destination="4bF-aa-0xp" id="SuO-2c-7Bh"/>
-=======
-                    <connections>
-                        <outlet property="scrollView" destination="my2-l5-8av" id="M1e-bh-wF7"/>
->>>>>>> 6593720296ec6741a8e647dd45aa44e818ce505d
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBb-yb-Fxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
