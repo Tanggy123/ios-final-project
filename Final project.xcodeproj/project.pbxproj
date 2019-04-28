@@ -106,18 +106,10 @@
 		BD1C4217225C217700F3747D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BD5A2B02226FC2AA00D88CBD /* RecipeViewController.swift */,
-				BD5A2B04226FC4F100D88CBD /* RecipeTableViewCell.swift */,
-				BD5A2B06226FC51800D88CBD /* RecipeCollectionViewCell.swift */,
-				BD649764225C0CAA00F6D83E /* EventViewController.swift */,
-				BD1C421A225C21D200F3747D /* MapViewController.swift */,
-				BDA0A5F7225F9A100062D31A /* MapDetailViewController.swift */,
-				BD08ED61226AE47B00D8AEAA /* MainTableViewController.swift */,
-				BD08ED5D226AE46B00D8AEAA /* DemoCell.swift */,
-				BD08ED5E226AE46F00D8AEAA /* FoldingCell.swift */,
-				BDA0A5F5225F8EA10062D31A /* RecipeDetailViewController.swift */,
-				BD1C421E225C24F400F3747D /* EventDetailViewController.swift */,
-				BD1C421C225C21DD00F3747D /* AccountViewController.swift */,
+				BD81BF0A2274DF9C00CC0F1E /* Recipe */,
+				BD81BF0C2274DFBE00CC0F1E /* Event */,
+				BD81BF0D2274DFCA00CC0F1E /* Map */,
+				BD81BF0E2274DFD300CC0F1E /* Account */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -153,6 +145,46 @@
 				BD64976B225C0CAB00F6D83E /* LaunchScreen.storyboard */,
 			);
 			path = "Final project";
+			sourceTree = "<group>";
+		};
+		BD81BF0A2274DF9C00CC0F1E /* Recipe */ = {
+			isa = PBXGroup;
+			children = (
+				BD5A2B02226FC2AA00D88CBD /* RecipeViewController.swift */,
+				BD5A2B04226FC4F100D88CBD /* RecipeTableViewCell.swift */,
+				BD5A2B06226FC51800D88CBD /* RecipeCollectionViewCell.swift */,
+				BDA0A5F5225F8EA10062D31A /* RecipeDetailViewController.swift */,
+			);
+			path = Recipe;
+			sourceTree = "<group>";
+		};
+		BD81BF0C2274DFBE00CC0F1E /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				BD649764225C0CAA00F6D83E /* EventViewController.swift */,
+				BD08ED61226AE47B00D8AEAA /* MainTableViewController.swift */,
+				BD08ED5D226AE46B00D8AEAA /* DemoCell.swift */,
+				BD08ED5E226AE46F00D8AEAA /* FoldingCell.swift */,
+				BD1C421E225C24F400F3747D /* EventDetailViewController.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		BD81BF0D2274DFCA00CC0F1E /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				BD1C421A225C21D200F3747D /* MapViewController.swift */,
+				BDA0A5F7225F9A100062D31A /* MapDetailViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		BD81BF0E2274DFD300CC0F1E /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				BD1C421C225C21DD00F3747D /* AccountViewController.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

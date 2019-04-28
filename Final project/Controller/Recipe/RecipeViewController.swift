@@ -9,6 +9,25 @@
 import UIKit
 
 class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var recipeTableView: UITableView! {
+        didSet {
+            recipeTableView.delegate = self
+            recipeTableView.dataSource = self
+        }
+    }
+    
+    
+    // MARK: - Init
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -45,19 +64,14 @@ class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    @IBOutlet weak var recipeTableView: UITableView! {
-        didSet {
-            recipeTableView.delegate = self
-            recipeTableView.dataSource = self
-        }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+    // MARK: - Variables
     
+    
+    // MARK: - Functions
+    @objc func imageTapped(_ sender: UIImageView) {
+        print("image tapped")
+        performSegue(withIdentifier: "ImagedTappedSegue", sender: self)
+    }
 
     /*
     // MARK: - Navigation
