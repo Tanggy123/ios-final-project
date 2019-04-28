@@ -12,8 +12,6 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var recipeImage: UIImageView! {
         didSet {
             recipeImage.isUserInteractionEnabled = true
-            let imageTappedGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RecipeViewController.imageTapped(_:)))
-            recipeImage.addGestureRecognizer(imageTappedGestureRecognizer)
         }
     }
 }

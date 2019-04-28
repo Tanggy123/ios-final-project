@@ -85,14 +85,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BD08ED5C226AE35A00D8AEAA /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		BD1C4215225C216800F3747D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,7 +127,6 @@
 		BD649761225C0CAA00F6D83E /* Final project */ = {
 			isa = PBXGroup;
 			children = (
-				BD08ED5C226AE35A00D8AEAA /* View */,
 				BD1C4217225C217700F3747D /* Controller */,
 				BD1C4215225C216800F3747D /* Model */,
 				BD649766225C0CAA00F6D83E /* Main.storyboard */,

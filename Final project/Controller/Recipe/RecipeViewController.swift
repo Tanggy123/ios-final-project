@@ -10,6 +10,7 @@ import UIKit
 
 class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
     // MARK: - Outlets
     
     @IBOutlet weak var recipeTableView: UITableView! {
@@ -28,6 +29,8 @@ class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view.
     }
     
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -38,6 +41,7 @@ class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeTableViewCell", for: indexPath) as? RecipeTableViewCell
+        cell!.currentVC = self
         return cell!
     }
     

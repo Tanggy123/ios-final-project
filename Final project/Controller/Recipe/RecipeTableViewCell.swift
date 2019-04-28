@@ -9,6 +9,11 @@
 import UIKit
 
 class RecipeTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        currentVC?.performSegue(withIdentifier: "ImageTappedSegue", sender: currentVC)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 20
     }
@@ -20,12 +25,12 @@ class RecipeTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
     }
     
     
-    var collectionView: UICollectionView?
-
+    var currentVC: UIViewController?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        collectionView = recipeCollectionView
+//        collectionView = recipeCollectionView
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
