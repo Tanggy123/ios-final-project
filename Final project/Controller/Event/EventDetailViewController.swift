@@ -17,7 +17,7 @@ class EventDetailViewController: UIViewController {
             // Setting the Title attributes
             eventTitleLabel.text = "Event Title"
             eventTitleLabel.textAlignment = .center
-            eventTitleLabel.textColor = .black
+            eventTitleLabel.textColor = .white
             eventTitleLabel.font = UIFont.systemFont(ofSize: 24)
             eventTitleLabel.backgroundColor = UIColor.purple
             
@@ -44,6 +44,8 @@ class EventDetailViewController: UIViewController {
     var eventImageView = UIImageView()
     var eventTextView = UITextView()
     
+    var eventName = ""
+    
     // MARK: - Init
     
     override func viewDidLoad() {
@@ -67,6 +69,8 @@ class EventDetailViewController: UIViewController {
         scrollView.addSubview(eventTextView)
         
         scrollView.contentSize = CGSize(width: view.frame.width, height: currentHeightScrollable)
+        
+        eventTitleLabel.text = eventName
         
         // Do any additional setup after loading the view.
     }

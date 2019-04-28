@@ -29,16 +29,15 @@ class MainTableViewController: UITableViewController {
     enum Const {
         static let closeCellHeight: CGFloat = 179
         static let openCellHeight: CGFloat = 488
-        static let rowsCount = 10
+        static let rowsCount = 5
     }
     
     var cellHeights: [CGFloat] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
         let db = Firestore.firestore()
-        for index in 0...2 {
+        for index in 0...Const.rowsCount-3 {
             let event = db.collection("Events").document("Event" + String(index))
             event.getDocument {
                 (document, error) in
@@ -46,13 +45,14 @@ class MainTableViewController: UITableViewController {
                     if let data = doc.data() {
                         Events[index] = data
                         print(data)
+                        self.tableView.reloadData()
                         }
                 } else {
                         print("Document does not exist")
                 }
             }
-
         }
+        setup()
     }
 
     private func setup() {
@@ -75,6 +75,19 @@ class MainTableViewController: UITableViewController {
             self?.tableView.reloadData()
         })
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if sender is UIButton {
+            if let dest = segue.destination as? EventDetailViewController {
+                if let event = Events[tappedCellNum] {
+                    if let eventTitle = event["EventName"] as? String {
+                        dest.eventName = eventTitle
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 // MARK: - TableView
@@ -82,7 +95,7 @@ class MainTableViewController: UITableViewController {
 extension MainTableViewController {
 
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 10
+        return 5
     }
 
     override func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -102,10 +115,32 @@ extension MainTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as! FoldingCell
-//        if let event = Events[indexPath.row] {
-//                cell.eventTitleLabel.text = event["EventName"] as String?
-//        } else {return UITableViewCell()}
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as! DemoCell
+        if let event = Events[indexPath.row] {
+            if let eventName = event["EventName"] as? String {
+                cell.eventTitleLabel.text = eventName
+                cell.openEventTitleLabel.text = eventName
+            }
+            if let address = event["Address"] as? String {
+                cell.eventAddressLabel.text = address
+                cell.openAddressLabel.text = address
+            }
+            if let timestamp = event["Time"] as? Timestamp {
+                let date = timestamp.dateValue()
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "E MMM dd, yyyy"
+                dateFormatter.timeZone = NSTimeZone.local
+                cell.closedEventDateLabel.text = dateFormatter.string(from: date)
+                cell.openEventDateLabel.text = dateFormatter.string(from: date)
+                dateFormatter.dateFormat = "h:mm a"
+                cell.closedEventTimeLabel.text = dateFormatter.string(from: date)
+                cell.openEventTimeLabel.text = dateFormatter.string(from: date)
+            }
+            if let type = event["EventType"] as? String {
+                cell.closedEventTypeLabel.text = type
+                cell.openEventTypeLabel.text = type
+            }
+        }
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
         cell.durationsForExpandedState = durations
         cell.durationsForCollapsedState = durations
@@ -141,4 +176,6 @@ extension MainTableViewController {
             tableView.endUpdates()
         }, completion: nil)
     }
+
+    
 }
