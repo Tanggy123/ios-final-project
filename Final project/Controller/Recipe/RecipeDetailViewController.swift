@@ -39,6 +39,7 @@ class RecipeDetailViewController: UIViewController {
     var procedureDescriptionTextView = UITextView()
     var spacer: CGFloat = 10
     var currentHeightScrollable: CGFloat = 0
+    let screenHeightCorrection: CGFloat = 170
     
     
     // MARK: - Init
@@ -46,6 +47,9 @@ class RecipeDetailViewController: UIViewController {
         super.viewDidLoad()
         setFoodImageView(isSettingAttributes: false)
         setFoodTitleLabel(isSettingAttributes: false)
+        setIngredientTextView(isSettingAttributes: false)
+        setProcedureTextView(isSettingAttributes: false)
+        scrollView.contentSize = CGSize(width: view.frame.width, height: currentHeightScrollable)
     }
     
     
@@ -53,18 +57,18 @@ class RecipeDetailViewController: UIViewController {
     
     // MARK: - Functions
     func generateLongText(str: String) -> String {
-        var str = ""
+        var toReturn = ""
         for _ in 0...50 {
-            str.append(str)
+            toReturn.append(str)
         }
-        return str
+        return toReturn
     }
     
     func setFoodImageView(isSettingAttributes: Bool) {
         if isSettingAttributes {
             foodImageView.image = UIImage(named: "duck-breast")
         } else {
-            foodImageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - 60)
+            foodImageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - screenHeightCorrection - 60)
             currentHeightScrollable += foodImageView.frame.height
             scrollView.addSubview(foodImageView)
         }
@@ -96,12 +100,15 @@ class RecipeDetailViewController: UIViewController {
             ingredientDescriptionTextView.backgroundColor = .lightGray
             ingredientDescriptionTextView.textAlignment = .left
             ingredientDescriptionTextView.textColor = .black
+            ingredientDescriptionTextView.font = UIFont.systemFont(ofSize: 20)
             ingredientDescriptionTextView.text = generateLongText(str: "Ingredient")
             ingredientDescriptionTextView.isEditable = false
             ingredientDescriptionTextView.isScrollEnabled = true
             ingredientDescriptionTextView.isUserInteractionEnabled = false
         } else {
-            
+            ingredientDescriptionTextView.frame = CGRect(x: 0, y: currentHeightScrollable, width: view.frame.width, height: 800)
+            currentHeightScrollable += ingredientDescriptionTextView.frame.height
+            scrollView.addSubview(ingredientDescriptionTextView)
         }
     }
     
@@ -110,12 +117,15 @@ class RecipeDetailViewController: UIViewController {
             procedureDescriptionTextView.backgroundColor = .white
             procedureDescriptionTextView.textAlignment = .left
             procedureDescriptionTextView.textColor = .black
+            procedureDescriptionTextView.font = UIFont.systemFont(ofSize: 20)
             procedureDescriptionTextView.text = generateLongText(str: "Procedure")
             procedureDescriptionTextView.isEditable = false
             procedureDescriptionTextView.isScrollEnabled = true
             procedureDescriptionTextView.isUserInteractionEnabled = false
         } else {
-            
+            procedureDescriptionTextView.frame = CGRect(x: 0, y: currentHeightScrollable, width: view.frame.width, height: 1000)
+            currentHeightScrollable += procedureDescriptionTextView.frame.height
+            scrollView.addSubview(procedureDescriptionTextView)
         }
     }
     
