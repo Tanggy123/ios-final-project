@@ -8,4 +8,6 @@ target 'Final project' do
   # Pods for Final project
    pod 'Firebase/Core'
    pod 'Firebase/Firestore'
+   pod 'ChameleonFramework/Swift'
+   
 end

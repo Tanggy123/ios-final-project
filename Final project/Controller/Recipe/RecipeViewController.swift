@@ -29,19 +29,20 @@ class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view.
     }
     
-    
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 170
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeTableViewCell", for: indexPath) as? RecipeTableViewCell
         cell!.currentVC = self
+        cell!.currentSection = indexPath.section
         return cell!
     }
     
@@ -72,19 +73,16 @@ class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     // MARK: - Functions
-    @objc func imageTapped(_ sender: UIImageView) {
-        print("image tapped")
-        performSegue(withIdentifier: "ImagedTappedSegue", sender: self)
-    }
-
-    /*
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "ViewAllSegue") {
+            
+        }
     }
-    */
+    
 
 }

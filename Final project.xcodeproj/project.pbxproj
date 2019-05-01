@@ -25,6 +25,13 @@
 		BD649768225C0CAA00F6D83E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD649766225C0CAA00F6D83E /* Main.storyboard */; };
 		BD64976A225C0CAB00F6D83E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD649769225C0CAB00F6D83E /* Assets.xcassets */; };
 		BD64976D225C0CAB00F6D83E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD64976B225C0CAB00F6D83E /* LaunchScreen.storyboard */; };
+		BD7F6A092279460D005B26E4 /* RecipeEndCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A082279460D005B26E4 /* RecipeEndCollectionViewCell.swift */; };
+		BD7F6A0B227962B2005B26E4 /* AllRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A0A227962B2005B26E4 /* AllRecipeViewController.swift */; };
+		BD7F6A0D22796AE3005B26E4 /* UserLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A0C22796AE3005B26E4 /* UserLogInViewController.swift */; };
+		BD7F6A0F22796D0E005B26E4 /* UploadEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A0E22796D0E005B26E4 /* UploadEventViewController.swift */; };
+		BD7F6A1122796D2C005B26E4 /* UploadRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A1022796D2C005B26E4 /* UploadRecipeViewController.swift */; };
+		BD7F6A1322796DBF005B26E4 /* LikedEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A1222796DBF005B26E4 /* LikedEventViewController.swift */; };
+		BD7F6A1522796DCB005B26E4 /* LikedRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A1422796DCB005B26E4 /* LikedRecipeViewController.swift */; };
 		BDA0A5F6225F8EA10062D31A /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0A5F5225F8EA10062D31A /* RecipeDetailViewController.swift */; };
 		BDA0A5F8225F9A100062D31A /* MapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0A5F7225F9A100062D31A /* MapDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +59,13 @@
 		BD649769225C0CAB00F6D83E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD64976C225C0CAB00F6D83E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD64976E225C0CAB00F6D83E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD7F6A082279460D005B26E4 /* RecipeEndCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEndCollectionViewCell.swift; sourceTree = "<group>"; };
+		BD7F6A0A227962B2005B26E4 /* AllRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecipeViewController.swift; sourceTree = "<group>"; };
+		BD7F6A0C22796AE3005B26E4 /* UserLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserLogInViewController.swift; path = Controller/UserLogInViewController.swift; sourceTree = "<group>"; };
+		BD7F6A0E22796D0E005B26E4 /* UploadEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadEventViewController.swift; sourceTree = "<group>"; };
+		BD7F6A1022796D2C005B26E4 /* UploadRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRecipeViewController.swift; sourceTree = "<group>"; };
+		BD7F6A1222796DBF005B26E4 /* LikedEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedEventViewController.swift; sourceTree = "<group>"; };
+		BD7F6A1422796DCB005B26E4 /* LikedRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedRecipeViewController.swift; sourceTree = "<group>"; };
 		BDA0A5F5225F8EA10062D31A /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		BDA0A5F7225F9A100062D31A /* MapDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +144,7 @@
 				BD1C4217225C217700F3747D /* Controller */,
 				BD1C4215225C216800F3747D /* Model */,
 				BD649766225C0CAA00F6D83E /* Main.storyboard */,
+				BD7F6A0C22796AE3005B26E4 /* UserLogInViewController.swift */,
 				1388D9692266B694008C8656 /* GoogleService-Info.plist */,
 				BD64976E225C0CAB00F6D83E /* Info.plist */,
 				BD649769225C0CAB00F6D83E /* Assets.xcassets */,
@@ -143,7 +158,9 @@
 			children = (
 				BD5A2B02226FC2AA00D88CBD /* RecipeViewController.swift */,
 				BD5A2B04226FC4F100D88CBD /* RecipeTableViewCell.swift */,
+				BD7F6A0A227962B2005B26E4 /* AllRecipeViewController.swift */,
 				BD5A2B06226FC51800D88CBD /* RecipeCollectionViewCell.swift */,
+				BD7F6A082279460D005B26E4 /* RecipeEndCollectionViewCell.swift */,
 				BDA0A5F5225F8EA10062D31A /* RecipeDetailViewController.swift */,
 			);
 			path = Recipe;
@@ -173,6 +190,10 @@
 		BD81BF0E2274DFD300CC0F1E /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				BD7F6A1222796DBF005B26E4 /* LikedEventViewController.swift */,
+				BD7F6A1422796DCB005B26E4 /* LikedRecipeViewController.swift */,
+				BD7F6A0E22796D0E005B26E4 /* UploadEventViewController.swift */,
+				BD7F6A1022796D2C005B26E4 /* UploadRecipeViewController.swift */,
 				BD1C421C225C21DD00F3747D /* AccountViewController.swift */,
 			);
 			path = Account;
@@ -273,8 +294,9 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Final project/Pods-Final project-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Final project/Pods-Final project-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
@@ -285,6 +307,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
@@ -294,7 +317,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Final project/Pods-Final project-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Final project/Pods-Final project-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -305,17 +328,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				1322F8C1226DE23D00FAA7FD /* User.swift in Sources */,
+				BD7F6A1322796DBF005B26E4 /* LikedEventViewController.swift in Sources */,
 				1322F8BF226DDD7E00FAA7FD /* EventInfo.swift in Sources */,
 				BD08ED62226AE47B00D8AEAA /* MainTableViewController.swift in Sources */,
+				BD7F6A0D22796AE3005B26E4 /* UserLogInViewController.swift in Sources */,
 				BD5A2B03226FC2AA00D88CBD /* RecipeViewController.swift in Sources */,
 				BDA0A5F8225F9A100062D31A /* MapDetailViewController.swift in Sources */,
+				BD7F6A1122796D2C005B26E4 /* UploadRecipeViewController.swift in Sources */,
 				BD08ED60226AE46F00D8AEAA /* FoldingCell.swift in Sources */,
+				BD7F6A092279460D005B26E4 /* RecipeEndCollectionViewCell.swift in Sources */,
+				BD7F6A0B227962B2005B26E4 /* AllRecipeViewController.swift in Sources */,
 				BD1C421F225C24F400F3747D /* EventDetailViewController.swift in Sources */,
 				BD5A2B05226FC4F100D88CBD /* RecipeTableViewCell.swift in Sources */,
 				BD08ED5F226AE46F00D8AEAA /* DemoCell.swift in Sources */,
 				BD649765225C0CAA00F6D83E /* EventViewController.swift in Sources */,
 				BDA0A5F6225F8EA10062D31A /* RecipeDetailViewController.swift in Sources */,
+				BD7F6A0F22796D0E005B26E4 /* UploadEventViewController.swift in Sources */,
 				BD1C421D225C21DD00F3747D /* AccountViewController.swift in Sources */,
+				BD7F6A1522796DCB005B26E4 /* LikedRecipeViewController.swift in Sources */,
 				BD5A2B07226FC51800D88CBD /* RecipeCollectionViewCell.swift in Sources */,
 				BD649763225C0CAA00F6D83E /* AppDelegate.swift in Sources */,
 				BD1C421B225C21D200F3747D /* MapViewController.swift in Sources */,
