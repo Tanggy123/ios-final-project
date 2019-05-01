@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6S0-Gp-vL0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7hO-oU-fhb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -344,9 +344,23 @@
                     <view key="view" contentMode="scaleToFill" id="DN6-jH-WWl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJZ-rZ-cHL">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eJZ-rZ-cHL" firstAttribute="top" secondItem="bid-nR-9iA" secondAttribute="top" id="4Yc-LX-lZ1"/>
+                            <constraint firstItem="bid-nR-9iA" firstAttribute="trailing" secondItem="eJZ-rZ-cHL" secondAttribute="trailing" id="UB2-HK-slp"/>
+                            <constraint firstItem="eJZ-rZ-cHL" firstAttribute="leading" secondItem="bid-nR-9iA" secondAttribute="leading" id="rPY-VC-xZT"/>
+                            <constraint firstItem="bid-nR-9iA" firstAttribute="bottom" secondItem="eJZ-rZ-cHL" secondAttribute="bottom" id="tBv-ri-Un8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bid-nR-9iA"/>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="eJZ-rZ-cHL" id="GNx-XC-Ntt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ad-Ny-eVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -359,7 +373,18 @@
                     <view key="view" contentMode="scaleToFill" id="OvE-Xv-FHF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J5y-dU-BlO">
+                                <rect key="frame" x="10" y="64" width="355" height="554"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h3h-28-Wav" firstAttribute="bottom" secondItem="J5y-dU-BlO" secondAttribute="bottom" id="0Lv-Wn-ynY"/>
+                            <constraint firstItem="J5y-dU-BlO" firstAttribute="top" secondItem="h3h-28-Wav" secondAttribute="top" id="1BP-Ip-ZW5"/>
+                            <constraint firstItem="J5y-dU-BlO" firstAttribute="leading" secondItem="h3h-28-Wav" secondAttribute="leading" constant="10" id="EKR-iO-Rey"/>
+                            <constraint firstItem="h3h-28-Wav" firstAttribute="trailing" secondItem="J5y-dU-BlO" secondAttribute="trailing" constant="10" id="fTr-uY-wuA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="h3h-28-Wav"/>
                     </view>
                 </viewController>
@@ -1314,4 +1339,7 @@
         <image name="photo" width="98" height="98"/>
         <image name="stars" width="97" height="17"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="BIa-Hf-Q9z"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -190,10 +190,10 @@
 		BD81BF0E2274DFD300CC0F1E /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				BD7F6A1222796DBF005B26E4 /* LikedEventViewController.swift */,
-				BD7F6A1422796DCB005B26E4 /* LikedRecipeViewController.swift */,
 				BD7F6A0E22796D0E005B26E4 /* UploadEventViewController.swift */,
 				BD7F6A1022796D2C005B26E4 /* UploadRecipeViewController.swift */,
+				BD7F6A1222796DBF005B26E4 /* LikedEventViewController.swift */,
+				BD7F6A1422796DCB005B26E4 /* LikedRecipeViewController.swift */,
 				BD1C421C225C21DD00F3747D /* AccountViewController.swift */,
 			);
 			path = Account;
