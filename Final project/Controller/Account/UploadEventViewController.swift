@@ -92,7 +92,7 @@ class UploadEventViewController: UIViewController {
             eventTitleTextField.borderStyle = .roundedRect
         } else {
             eventTitleTextField.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width - 20, height: 40)
-            currentHeightScrollable += eventTitleTextField.frame.height
+            currentHeightScrollable += eventTitleTextField.frame.height + 30
             scrollView.addSubview(eventTitleTextField)
         }
     }
@@ -119,7 +119,7 @@ class UploadEventViewController: UIViewController {
             eventDescriptionTextField.font = UIFont.systemFont(ofSize: 24)
         } else {
             eventDescriptionTextField.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width - 20, height: 300)
-            currentHeightScrollable += eventDescriptionTextField.frame.height
+            currentHeightScrollable += eventDescriptionTextField.frame.height + 30
             scrollView.addSubview(eventDescriptionTextField)
         }
     }
@@ -144,7 +144,7 @@ class UploadEventViewController: UIViewController {
             eventDateTextField.inputView = eventDatePickerView
         } else {
             eventDateTextField.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width - 20, height: 50)
-            currentHeightScrollable += eventDateTextField.frame.height + 10
+            currentHeightScrollable += eventDateTextField.frame.height + 20
             scrollView.addSubview(eventDateTextField)
         }
     }
@@ -168,7 +168,7 @@ class UploadEventViewController: UIViewController {
             eventTimeTextField.inputView = eventTimePickerView
         } else {
             eventTimeTextField.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width - 20, height: 50)
-            currentHeightScrollable += eventTimeTextField.frame.height + 10
+            currentHeightScrollable += eventTimeTextField.frame.height + 20
             scrollView.addSubview(eventTimeTextField)
         }
     }

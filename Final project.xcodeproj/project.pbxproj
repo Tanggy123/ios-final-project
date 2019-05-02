@@ -30,10 +30,14 @@
 		BD7F6A0D22796AE3005B26E4 /* UserLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A0C22796AE3005B26E4 /* UserLogInViewController.swift */; };
 		BD7F6A0F22796D0E005B26E4 /* UploadEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A0E22796D0E005B26E4 /* UploadEventViewController.swift */; };
 		BD7F6A1122796D2C005B26E4 /* UploadRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A1022796D2C005B26E4 /* UploadRecipeViewController.swift */; };
-		BD7F6A1322796DBF005B26E4 /* LikedEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A1222796DBF005B26E4 /* LikedEventViewController.swift */; };
-		BD7F6A1522796DCB005B26E4 /* LikedRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A1422796DCB005B26E4 /* LikedRecipeViewController.swift */; };
 		BDA0A5F6225F8EA10062D31A /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0A5F5225F8EA10062D31A /* RecipeDetailViewController.swift */; };
 		BDA0A5F8225F9A100062D31A /* MapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0A5F7225F9A100062D31A /* MapDetailViewController.swift */; };
+		BDC77B3C227B63C20030146A /* LikedEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC77B3B227B63C20030146A /* LikedEventTableViewController.swift */; };
+		BDC77B3E227B63D70030146A /* LikedRecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC77B3D227B63D70030146A /* LikedRecipeTableViewController.swift */; };
+		BDC77B40227B642E0030146A /* LikedEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC77B3F227B642E0030146A /* LikedEventTableViewCell.swift */; };
+		BDC77B42227B643C0030146A /* LikedRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC77B41227B643C0030146A /* LikedRecipeTableViewCell.swift */; };
+		BDC77B44227B6CEE0030146A /* LikedEventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC77B43227B6CEE0030146A /* LikedEventDetailViewController.swift */; };
+		BDC77B46227B6CFD0030146A /* LikedRecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC77B45227B6CFD0030146A /* LikedRecipeDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,10 +68,14 @@
 		BD7F6A0C22796AE3005B26E4 /* UserLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserLogInViewController.swift; path = Controller/UserLogInViewController.swift; sourceTree = "<group>"; };
 		BD7F6A0E22796D0E005B26E4 /* UploadEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadEventViewController.swift; sourceTree = "<group>"; };
 		BD7F6A1022796D2C005B26E4 /* UploadRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRecipeViewController.swift; sourceTree = "<group>"; };
-		BD7F6A1222796DBF005B26E4 /* LikedEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedEventViewController.swift; sourceTree = "<group>"; };
-		BD7F6A1422796DCB005B26E4 /* LikedRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedRecipeViewController.swift; sourceTree = "<group>"; };
 		BDA0A5F5225F8EA10062D31A /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		BDA0A5F7225F9A100062D31A /* MapDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailViewController.swift; sourceTree = "<group>"; };
+		BDC77B3B227B63C20030146A /* LikedEventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedEventTableViewController.swift; sourceTree = "<group>"; };
+		BDC77B3D227B63D70030146A /* LikedRecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedRecipeTableViewController.swift; sourceTree = "<group>"; };
+		BDC77B3F227B642E0030146A /* LikedEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedEventTableViewCell.swift; sourceTree = "<group>"; };
+		BDC77B41227B643C0030146A /* LikedRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedRecipeTableViewCell.swift; sourceTree = "<group>"; };
+		BDC77B43227B6CEE0030146A /* LikedEventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedEventDetailViewController.swift; sourceTree = "<group>"; };
+		BDC77B45227B6CFD0030146A /* LikedRecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedRecipeDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,11 +198,15 @@
 		BD81BF0E2274DFD300CC0F1E /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				BD1C421C225C21DD00F3747D /* AccountViewController.swift */,
 				BD7F6A0E22796D0E005B26E4 /* UploadEventViewController.swift */,
 				BD7F6A1022796D2C005B26E4 /* UploadRecipeViewController.swift */,
-				BD7F6A1222796DBF005B26E4 /* LikedEventViewController.swift */,
-				BD7F6A1422796DCB005B26E4 /* LikedRecipeViewController.swift */,
-				BD1C421C225C21DD00F3747D /* AccountViewController.swift */,
+				BDC77B3B227B63C20030146A /* LikedEventTableViewController.swift */,
+				BDC77B3F227B642E0030146A /* LikedEventTableViewCell.swift */,
+				BDC77B43227B6CEE0030146A /* LikedEventDetailViewController.swift */,
+				BDC77B3D227B63D70030146A /* LikedRecipeTableViewController.swift */,
+				BDC77B41227B643C0030146A /* LikedRecipeTableViewCell.swift */,
+				BDC77B45227B6CFD0030146A /* LikedRecipeDetailViewController.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -328,11 +340,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1322F8C1226DE23D00FAA7FD /* User.swift in Sources */,
-				BD7F6A1322796DBF005B26E4 /* LikedEventViewController.swift in Sources */,
 				1322F8BF226DDD7E00FAA7FD /* EventInfo.swift in Sources */,
 				BD08ED62226AE47B00D8AEAA /* MainTableViewController.swift in Sources */,
 				BD7F6A0D22796AE3005B26E4 /* UserLogInViewController.swift in Sources */,
 				BD5A2B03226FC2AA00D88CBD /* RecipeViewController.swift in Sources */,
+				BDC77B42227B643C0030146A /* LikedRecipeTableViewCell.swift in Sources */,
+				BDC77B3E227B63D70030146A /* LikedRecipeTableViewController.swift in Sources */,
 				BDA0A5F8225F9A100062D31A /* MapDetailViewController.swift in Sources */,
 				BD7F6A1122796D2C005B26E4 /* UploadRecipeViewController.swift in Sources */,
 				BD08ED60226AE46F00D8AEAA /* FoldingCell.swift in Sources */,
@@ -340,13 +353,16 @@
 				BD7F6A0B227962B2005B26E4 /* AllRecipeViewController.swift in Sources */,
 				BD1C421F225C24F400F3747D /* EventDetailViewController.swift in Sources */,
 				BD5A2B05226FC4F100D88CBD /* RecipeTableViewCell.swift in Sources */,
+				BDC77B40227B642E0030146A /* LikedEventTableViewCell.swift in Sources */,
 				BD08ED5F226AE46F00D8AEAA /* DemoCell.swift in Sources */,
 				BD649765225C0CAA00F6D83E /* EventViewController.swift in Sources */,
+				BDC77B3C227B63C20030146A /* LikedEventTableViewController.swift in Sources */,
+				BDC77B44227B6CEE0030146A /* LikedEventDetailViewController.swift in Sources */,
 				BDA0A5F6225F8EA10062D31A /* RecipeDetailViewController.swift in Sources */,
 				BD7F6A0F22796D0E005B26E4 /* UploadEventViewController.swift in Sources */,
 				BD1C421D225C21DD00F3747D /* AccountViewController.swift in Sources */,
-				BD7F6A1522796DCB005B26E4 /* LikedRecipeViewController.swift in Sources */,
 				BD5A2B07226FC51800D88CBD /* RecipeCollectionViewCell.swift in Sources */,
+				BDC77B46227B6CFD0030146A /* LikedRecipeDetailViewController.swift in Sources */,
 				BD649763225C0CAA00F6D83E /* AppDelegate.swift in Sources */,
 				BD1C421B225C21D200F3747D /* MapViewController.swift in Sources */,
 			);

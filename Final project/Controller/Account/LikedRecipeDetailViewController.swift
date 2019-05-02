@@ -1,16 +1,17 @@
 //
-//  RecipeDetailViewController.swift
+//  LikedRecipeDetailViewController.swift
 //  Final project
 //
-//  Created by 徐乾智 on 4/11/19.
+//  Created by 徐乾智 on 5/2/19.
 //  Copyright © 2019 徐乾智. All rights reserved.
 //
 
 import UIKit
 import WebKit
 
-class RecipeDetailViewController: UIViewController {
-    
+class LikedRecipeDetailViewController: UIViewController {
+
+
     // MARK: - Outlets
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
@@ -243,15 +244,14 @@ class RecipeDetailViewController: UIViewController {
     @objc func likeButtonTapped() {
         
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
 }
