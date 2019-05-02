@@ -16,9 +16,13 @@ class UserLogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    // MARK: - Variables
+    var userIsLoggedIn: Bool = false
+    
     // MARK: - Functions
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
+        userIsLoggedIn = true
         performSegue(withIdentifier: "SignInSegue", sender: self)
     }
     
@@ -26,6 +30,8 @@ class UserLogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func continueAsGuestButtonTapped(_ sender: UIButton) {
+        userIsLoggedIn = false
+        performSegue(withIdentifier: "SignInSegue", sender: self)
     }
     
     // MARK - Inits

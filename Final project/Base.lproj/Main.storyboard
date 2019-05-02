@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7hO-oU-fhb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6S0-Gp-vL0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -360,9 +360,11 @@
                     </view>
                     <connections>
                         <outlet property="scrollView" destination="eJZ-rZ-cHL" id="GNx-XC-Ntt"/>
+                        <segue destination="lwj-iJ-mJC" kind="unwind" identifier="EventUploadCompleteSegue" unwindAction="unwindToAccountWithSegue:" id="hFD-pX-ac7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ad-Ny-eVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lwj-iJ-mJC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3313" y="2472"/>
         </scene>
@@ -375,20 +377,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J5y-dU-BlO">
-                                <rect key="frame" x="10" y="64" width="355" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="h3h-28-Wav" firstAttribute="bottom" secondItem="J5y-dU-BlO" secondAttribute="bottom" id="0Lv-Wn-ynY"/>
                             <constraint firstItem="J5y-dU-BlO" firstAttribute="top" secondItem="h3h-28-Wav" secondAttribute="top" id="1BP-Ip-ZW5"/>
-                            <constraint firstItem="J5y-dU-BlO" firstAttribute="leading" secondItem="h3h-28-Wav" secondAttribute="leading" constant="10" id="EKR-iO-Rey"/>
-                            <constraint firstItem="h3h-28-Wav" firstAttribute="trailing" secondItem="J5y-dU-BlO" secondAttribute="trailing" constant="10" id="fTr-uY-wuA"/>
+                            <constraint firstItem="J5y-dU-BlO" firstAttribute="leading" secondItem="h3h-28-Wav" secondAttribute="leading" id="EKR-iO-Rey"/>
+                            <constraint firstItem="h3h-28-Wav" firstAttribute="trailing" secondItem="J5y-dU-BlO" secondAttribute="trailing" id="fTr-uY-wuA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h3h-28-Wav"/>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="J5y-dU-BlO" id="DTy-VO-QWc"/>
+                        <segue destination="eGG-L3-ycg" kind="unwind" identifier="RecipeUploadCompleteSegue" unwindAction="unwindToAccountWithSegue:" id="x3M-Xd-Toj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hvp-gb-Yxl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="eGG-L3-ycg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3313" y="3300"/>
         </scene>
@@ -1339,7 +1346,4 @@
         <image name="photo" width="98" height="98"/>
         <image name="stars" width="97" height="17"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="BIa-Hf-Q9z"/>
-    </inferredMetricsTieBreakers>
 </document>
