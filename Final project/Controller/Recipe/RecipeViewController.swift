@@ -25,7 +25,7 @@ class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUp()
         // Do any additional setup after loading the view.
     }
     
@@ -73,6 +73,25 @@ class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     // MARK: - Functions
+    
+    func setUp() {
+        if #available(iOS 10.0, *) {
+            recipeTableView.refreshControl = UIRefreshControl()
+            recipeTableView.refreshControl?.addTarget(self, action: #selector(refreshHandler), for: .valueChanged)
+        }
+    }
+    
+    @objc func refreshHandler() {
+        let deadlineTime = DispatchTime.now() + .seconds(1)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: { [weak self] in
+            if #available(iOS 10.0, *) {
+                self?.recipeTableView.refreshControl?.endRefreshing()
+            }
+            self?.recipeTableView.reloadData()
+        })
+    }
+    
+    
     
     
     // MARK: - Navigation

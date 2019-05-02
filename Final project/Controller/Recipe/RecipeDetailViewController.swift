@@ -135,7 +135,7 @@ class RecipeDetailViewController: UIViewController {
             foodTimeLabel.font = UIFont.systemFont(ofSize: 15)
         } else {
             foodTimeLabel.frame = CGRect(x: 0, y: currentHeightScrollable, width: view.frame.width, height: 40)
-            currentHeightScrollable += foodTimeLabel.frame.height
+            currentHeightScrollable += foodTimeLabel.frame.height + 20
             scrollView.addSubview(foodTimeLabel)
         }
     }
@@ -241,7 +241,11 @@ class RecipeDetailViewController: UIViewController {
     }
     
     @objc func likeButtonTapped() {
-        
+        let alt = UIAlertController(title: "", message: "Recipe added to your like list!", preferredStyle: .alert)
+        alt.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
+            (_)in
+        }))
+        self.present(alt, animated: true, completion: nil)
     }
 
     /*
