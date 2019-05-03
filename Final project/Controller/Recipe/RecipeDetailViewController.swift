@@ -57,7 +57,7 @@ class RecipeDetailViewController: UIViewController {
     var procedureDescriptionTextView = UITextView()
     var spacer: CGFloat = 10
     var currentHeightScrollable: CGFloat = 0
-    let screenHeightCorrection: CGFloat = 115
+    let screenHeightCorrection: CGFloat = 110
     
     
     // MARK: - Init
@@ -135,7 +135,7 @@ class RecipeDetailViewController: UIViewController {
             foodTimeLabel.font = UIFont.systemFont(ofSize: 15)
         } else {
             foodTimeLabel.frame = CGRect(x: 0, y: currentHeightScrollable, width: view.frame.width, height: 40)
-            currentHeightScrollable += foodTimeLabel.frame.height + 20
+            currentHeightScrollable += foodTimeLabel.frame.height
             scrollView.addSubview(foodTimeLabel)
         }
     }

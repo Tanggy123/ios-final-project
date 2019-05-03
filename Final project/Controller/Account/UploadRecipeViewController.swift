@@ -283,8 +283,8 @@ class UploadRecipeViewController: UIViewController, UIPickerViewDelegate, UIPick
     func setUploadCompleteButton(isSettingAttributes: Bool) {
         if isSettingAttributes {
             uploadCompleteButton.setTitle("Upload", for: .normal)
-            uploadCompleteButton.setTitleColor(UIColor.black, for: .normal)
-            uploadCompleteButton.backgroundColor = UIColor.yellow
+            uploadCompleteButton.setTitleColor(UIColor.white, for: .normal)
+            uploadCompleteButton.backgroundColor = UIColor.flatMint()
             uploadCompleteButton.addTarget(self, action: #selector(uploadCompleteButtonTapped), for: .touchUpInside)
         } else {
             uploadCompleteButton.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width - 20, height: 50)
@@ -343,7 +343,7 @@ class UploadRecipeViewController: UIViewController, UIPickerViewDelegate, UIPick
             servingNumberTextField.text = String(row + 1)
         }
     }
-    
+
     
     @objc func uploadCompleteButtonTapped() {
         if (recipeTitleTextField.text == "" || recipeDescriptionTextView.text == "" || ingredientTextView.text == "" || procedureTextView.text == "" || cookingTimeTextField.text == "" || servingNumberTextField.text == "") {

@@ -329,9 +329,6 @@
                                         <state key="normal" title="Upload Event                                                ">
                                             <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="7hO-oU-fhb" kind="show" identifier="UploadEventSegue" id="Djf-j6-pRd"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIf-rG-yHE">
                                         <rect key="frame" x="0.0" y="94" width="365" height="46"/>
@@ -339,9 +336,6 @@
                                         <state key="normal" title="Upload Recipe                                               ">
                                             <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="vlx-Qm-Pzo" kind="show" identifier="UploadRecipeSegue" id="zw9-2r-Qp9"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKI-pD-jG0">
                                         <rect key="frame" x="0.0" y="141" width="365" height="46"/>
@@ -349,9 +343,6 @@
                                         <state key="normal" title="Liked Events                                                 ">
                                             <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="5hJ-RH-sm1" kind="show" id="zkg-Dr-kqM"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUd-l6-qTV">
                                         <rect key="frame" x="0.0" y="188" width="365" height="46"/>
@@ -359,9 +350,6 @@
                                         <state key="normal" title="Liked Recipe                                                ">
                                             <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="znh-Xx-FnB" kind="show" id="rmZ-SF-Qqw"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -411,16 +399,44 @@
                         <outlet property="editInformationButton" destination="lcO-Pp-d0t" id="6fx-Jo-BY9"/>
                         <outlet property="likedEventButton" destination="CKI-pD-jG0" id="hOf-iX-M7P"/>
                         <outlet property="likedRecipeButton" destination="DUd-l6-qTV" id="bJ6-hf-e6T"/>
+                        <outlet property="logoutButton" destination="AMm-Ts-KRe" id="hoK-lZ-Ywm"/>
                         <outlet property="uploadEventButton" destination="q3m-jD-hrM" id="asH-qz-syN"/>
                         <outlet property="uploadRecipeButton" destination="YIf-rG-yHE" id="6Za-Ah-MSb"/>
                         <outlet property="userNameButton" destination="UDm-lb-Uaz" id="Cys-lZ-JLd"/>
+                        <outlet property="userProfileImageView" destination="ceJ-GW-OYy" id="bXy-zI-cZj"/>
                         <segue destination="6bl-33-88I" kind="unwind" identifier="unwindToLoginPage" unwindAction="unwindToLoginPageWithSegue:" id="qey-gJ-Mhp"/>
+                        <segue destination="7hO-oU-fhb" kind="show" identifier="UploadEventSegue" id="nhU-bg-uzw"/>
+                        <segue destination="vlx-Qm-Pzo" kind="show" identifier="UploadRecipeSegue" id="Pgx-rz-Jj1"/>
+                        <segue destination="znh-Xx-FnB" kind="show" identifier="LikedRecipeSegue" id="3wz-eG-yVP"/>
+                        <segue destination="5hJ-RH-sm1" kind="show" identifier="LikedEventSegue" id="2AD-Tm-BDy"/>
+                        <segue destination="9JC-s5-ydw" kind="show" identifier="EditInformationSegue" id="Bjv-20-9hX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3m-eS-nEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="6bl-33-88I" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1612" y="2886.2068965517242"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5aO-v0-Xcp">
+            <objects>
+                <viewController id="9JC-s5-ydw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cnh-hE-a4P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="g7k-39-ICP">
+                                <rect key="frame" x="132" y="157" width="110" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="whI-nq-kma"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T4P-lc-72K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3721" y="2159"/>
         </scene>
         <!--Upload Event View Controller-->
         <scene sceneID="GHk-fL-daP">
@@ -451,7 +467,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ad-Ny-eVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lwj-iJ-mJC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3313" y="2472"/>
+            <point key="canvasLocation" x="3721" y="2951"/>
         </scene>
         <!--Liked Event Table View Controller-->
         <scene sceneID="eIB-dh-mv0">
@@ -680,7 +696,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hvp-gb-Yxl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="eGG-L3-ycg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3313" y="3300"/>
+            <point key="canvasLocation" x="3721" y="3778"/>
         </scene>
         <!--Map-->
         <scene sceneID="pq7-1D-ViE">
@@ -884,51 +900,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LUM-jr-6SV">
-                                <rect key="frame" x="20" y="40" width="335" height="427"/>
+                                <rect key="frame" x="20" y="40" width="335" height="327"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1G-0o-ZXt">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="71"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="54.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jgE-Wn-JB4">
-                                        <rect key="frame" x="0.0" y="71" width="335" height="71.5"/>
+                                        <rect key="frame" x="0.0" y="54.5" width="335" height="54.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oge-Yo-Y15">
-                                        <rect key="frame" x="0.0" y="142.5" width="335" height="71"/>
+                                        <rect key="frame" x="0.0" y="109" width="335" height="54.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nBU-Ei-5yA">
-                                        <rect key="frame" x="0.0" y="213.5" width="335" height="71"/>
+                                        <rect key="frame" x="0.0" y="163.5" width="335" height="54.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leP-Pn-DtQ">
-                                        <rect key="frame" x="0.0" y="284.5" width="335" height="71.5"/>
+                                        <rect key="frame" x="0.0" y="218" width="335" height="54.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3lD-Ih-Hdc">
-                                        <rect key="frame" x="0.0" y="356" width="335" height="71"/>
+                                        <rect key="frame" x="0.0" y="272.5" width="335" height="54.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="Bba-zC-g2e">
-                                <rect key="frame" x="20" y="517" width="335" height="90"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="Bba-zC-g2e">
+                                <rect key="frame" x="20" y="507" width="335" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmP-d0-aQT">
-                                        <rect key="frame" x="0.0" y="0.0" width="117.5" height="90"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="132.5" height="80"/>
                                         <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Register">
@@ -940,7 +956,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGx-lT-8vu">
-                                        <rect key="frame" x="217.5" y="0.0" width="117.5" height="90"/>
+                                        <rect key="frame" x="202.5" y="0.0" width="132.5" height="80"/>
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="quit">
@@ -952,14 +968,27 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVn-sY-xyH">
+                                <rect key="frame" x="20" y="393" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="f76-Oz-UZm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Upload Image">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="i5d-hy-QPP" firstAttribute="trailing" secondItem="LUM-jr-6SV" secondAttribute="trailing" constant="20" id="2jW-6J-MC4"/>
+                            <constraint firstItem="JVn-sY-xyH" firstAttribute="top" secondItem="LUM-jr-6SV" secondAttribute="bottom" constant="26" id="36H-WX-gTd"/>
+                            <constraint firstItem="JVn-sY-xyH" firstAttribute="leading" secondItem="i5d-hy-QPP" secondAttribute="leading" constant="20" id="Cbc-Mc-rVd"/>
                             <constraint firstItem="LUM-jr-6SV" firstAttribute="top" secondItem="i5d-hy-QPP" secondAttribute="top" constant="20" id="IDd-4x-2OF"/>
-                            <constraint firstItem="Bba-zC-g2e" firstAttribute="top" secondItem="LUM-jr-6SV" secondAttribute="bottom" constant="50" id="W70-Py-LhW"/>
-                            <constraint firstItem="i5d-hy-QPP" firstAttribute="bottom" secondItem="Bba-zC-g2e" secondAttribute="bottom" constant="60" id="bGS-3v-wgg"/>
-                            <constraint firstItem="i5d-hy-QPP" firstAttribute="bottom" secondItem="LUM-jr-6SV" secondAttribute="bottom" constant="200" id="g9r-Et-bU8"/>
+                            <constraint firstItem="i5d-hy-QPP" firstAttribute="trailing" secondItem="JVn-sY-xyH" secondAttribute="trailing" constant="20" id="KVQ-Gn-fUK"/>
+                            <constraint firstItem="Bba-zC-g2e" firstAttribute="top" secondItem="LUM-jr-6SV" secondAttribute="bottom" constant="140" id="W70-Py-LhW"/>
+                            <constraint firstItem="i5d-hy-QPP" firstAttribute="bottom" secondItem="Bba-zC-g2e" secondAttribute="bottom" constant="80" id="bGS-3v-wgg"/>
+                            <constraint firstItem="i5d-hy-QPP" firstAttribute="bottom" secondItem="LUM-jr-6SV" secondAttribute="bottom" constant="300" id="g9r-Et-bU8"/>
                             <constraint firstItem="LUM-jr-6SV" firstAttribute="leading" secondItem="i5d-hy-QPP" secondAttribute="leading" constant="20" id="gEX-2E-AgA"/>
                             <constraint firstItem="Bba-zC-g2e" firstAttribute="leading" secondItem="i5d-hy-QPP" secondAttribute="leading" constant="20" id="mpg-yy-YgM"/>
                             <constraint firstItem="i5d-hy-QPP" firstAttribute="trailing" secondItem="Bba-zC-g2e" secondAttribute="trailing" constant="20" id="qsV-lC-tfl"/>
@@ -971,6 +1000,7 @@
                         <outlet property="passwordTextField" destination="nBU-Ei-5yA" id="hf8-IN-DI2"/>
                         <outlet property="quitButton" destination="XGx-lT-8vu" id="N9F-Xl-XC3"/>
                         <outlet property="registerButton" destination="rmP-d0-aQT" id="0Si-ch-59Q"/>
+                        <outlet property="uploadImageButton" destination="JVn-sY-xyH" id="5LH-Qa-RMX"/>
                         <outlet property="userNameTextField" destination="jgE-Wn-JB4" id="0OM-4q-Yvn"/>
                         <segue destination="emj-q9-7uy" kind="unwind" identifier="UnwindToLoginFromRegister" unwindAction="unwindToLoginPageWithSegue:" id="MGk-iB-OUc"/>
                     </connections>
@@ -978,7 +1008,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L5J-AT-gmz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="emj-q9-7uy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2258" y="1830"/>
+            <point key="canvasLocation" x="-2258.4000000000001" y="1829.2353823088458"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="57C-vW-FMI">

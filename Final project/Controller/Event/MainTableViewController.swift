@@ -38,19 +38,21 @@ class MainTableViewController: UITableViewController {
         super.viewDidLoad()
         let db = Firestore.firestore()
         for index in 0...Const.rowsCount - 3 {
-            let event = db.collection("Events").document("Event" + String(index))
-            event.getDocument {
-                (document, error) in
-                if let doc = document, doc.exists {
-                    if let data = doc.data() {
-                        Events[index] = data
-                        print(data)
-                        self.tableView.reloadData()
-                        }
-                } else {
-                        print("Document does not exist")
-                }
-            }
+            Events[index] = readFromFirebase(withDb: db, fromCollection: .event, fromDocument: "Event" + String(index))
+            self.tableView.reloadData()
+//            let event = db.collection("Events").document("Event" + String(index))
+//            event.getDocument {
+//                (document, error) in
+//                if let doc = document, doc.exists {
+//                    if let data = doc.data() {
+//                        Events[index] = data
+//                        print(data)
+//                        self.tableView.reloadData()
+//                        }
+//                } else {
+//                        print("Document does not exist")
+//                }
+//            }
         }
         setup()
     }
@@ -116,7 +118,8 @@ extension MainTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as! DemoCell
-        if let event = Events[indexPath.row] {
+        let position = Events.count - indexPath.row - 1
+        if let event = Events[position] {
             if let eventName = event["EventName"] as? String {
                 cell.eventTitleLabel.text = eventName
                 cell.openEventTitleLabel.text = eventName

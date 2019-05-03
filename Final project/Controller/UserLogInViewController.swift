@@ -69,7 +69,7 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
     // MARK: - Functions
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
-        if let userDict = UserDictionary[userNameTextField.text!] as? Dictionary<String, Any> {
+        if let userDict = Users[userNameTextField.text!] as? Dictionary<String, Any> {
             if let password = userDict["Password"] as? String {
                 if password == passwordTextField.text {
                     userIsLoggedIn = true

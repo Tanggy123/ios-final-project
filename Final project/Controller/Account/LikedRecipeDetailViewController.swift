@@ -58,7 +58,7 @@ class LikedRecipeDetailViewController: UIViewController {
     var procedureDescriptionTextView = UITextView()
     var spacer: CGFloat = 10
     var currentHeightScrollable: CGFloat = 0
-    let screenHeightCorrection: CGFloat = 115
+    let screenHeightCorrection: CGFloat = 110
     
     
     // MARK: - Init
@@ -101,7 +101,7 @@ class LikedRecipeDetailViewController: UIViewController {
         if isSettingAttributes {
             foodTypeLabel.text = "    Breakfast and Brunch"
             foodTypeLabel.textAlignment = .left
-            foodTypeLabel.backgroundColor = .yellow
+            foodTypeLabel.backgroundColor = UIColor.flatMintColorDark()
             foodTypeLabel.textColor = .black
             foodTypeLabel.font = UIFont.systemFont(ofSize: 15)
         } else {
@@ -115,7 +115,7 @@ class LikedRecipeDetailViewController: UIViewController {
         if isSettingAttributes {
             foodTitle.text = "   Food Title"
             foodTitle.textAlignment = .left
-            foodTitle.backgroundColor = .yellow
+            foodTitle.backgroundColor = UIColor.flatMintColorDark()
             foodTitle.textColor = .black
             foodTitle.font = UIFont.systemFont(ofSize: 30)
             foodTitle.numberOfLines = 3
@@ -131,7 +131,7 @@ class LikedRecipeDetailViewController: UIViewController {
         if isSettingAttributes {
             foodTimeLabel.text = "    30 mins, serves 2"
             foodTimeLabel.textAlignment = .left
-            foodTimeLabel.backgroundColor = .yellow
+            foodTimeLabel.backgroundColor = UIColor.flatMintColorDark()
             foodTimeLabel.textColor = .black
             foodTimeLabel.font = UIFont.systemFont(ofSize: 15)
         } else {
@@ -170,7 +170,7 @@ class LikedRecipeDetailViewController: UIViewController {
         if isSettingAttributes {
             likeButton.setTitle("Like this recipe", for: .normal)
             likeButton.setTitleColor(UIColor.black, for: .normal)
-            likeButton.backgroundColor = .yellow
+            likeButton.backgroundColor = UIColor.flatMintColorDark()
             likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         } else {
             likeButton.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width - 20, height: 50)
@@ -181,7 +181,7 @@ class LikedRecipeDetailViewController: UIViewController {
     
     func setIngredientLabel(isSettingAttributes: Bool) {
         if isSettingAttributes {
-            let txt = NSAttributedString(string: "  Ingredient", attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue, NSAttributedString.Key.underlineColor: UIColor.yellow])
+            let txt = NSAttributedString(string: "  Ingredient", attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue, NSAttributedString.Key.underlineColor: UIColor.flatMintColorDark()])
             ingredientLabel.attributedText = txt
             ingredientLabel.textAlignment = .left
             ingredientLabel.textColor = .black
@@ -212,7 +212,7 @@ class LikedRecipeDetailViewController: UIViewController {
     
     func setProcedureLabel(isSettingAttributes: Bool) {
         if isSettingAttributes {
-            let txt = NSAttributedString(string: "  Procedure", attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue, NSAttributedString.Key.underlineColor: UIColor.yellow])
+            let txt = NSAttributedString(string: "  Procedure", attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue, NSAttributedString.Key.underlineColor: UIColor.flatMintColorDark()])
             procedureLabel.attributedText = txt
             procedureLabel.textAlignment = .left
             procedureLabel.textColor = .black
@@ -242,9 +242,13 @@ class LikedRecipeDetailViewController: UIViewController {
     }
     
     @objc func likeButtonTapped() {
-        
+        let alt = UIAlertController(title: "", message: "Recipe added to your like list!", preferredStyle: .alert)
+        alt.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
+            (_)in
+        }))
+        self.present(alt, animated: true, completion: nil)
     }
-    
+
     /*
      // MARK: - Navigation
      

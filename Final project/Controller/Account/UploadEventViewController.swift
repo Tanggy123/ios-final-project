@@ -259,8 +259,8 @@ class UploadEventViewController: UIViewController {
     func setUploadCompleteButton(isSettingAttributes: Bool) {
         if isSettingAttributes {
             uploadCompleteButton.setTitle("Upload", for: .normal)
-            uploadCompleteButton.setTitleColor(UIColor.black, for: .normal)
-            uploadCompleteButton.backgroundColor = UIColor.yellow
+            uploadCompleteButton.setTitleColor(UIColor.white, for: .normal)
+            uploadCompleteButton.backgroundColor = UIColor.flatMint()
             uploadCompleteButton.titleLabel?.font = UIFont.systemFont(ofSize: 25)
             uploadCompleteButton.addTarget(self, action: #selector(uploadCompleteButtonTapped), for: .touchUpInside)
         } else {
@@ -309,8 +309,10 @@ class UploadEventViewController: UIViewController {
             dict["Liked"] = 1000
             dict["Time"] = selectedEventDate
             
+            
+            // TODO: Upload this event to firebase
             eventCounter += 1
-            Events[eventCounter] = dict
+            Events[eventCounter - 1] = dict
             
             let alt = UIAlertController(title: "", message: "Upload Complete", preferredStyle: .alert)
             alt.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
