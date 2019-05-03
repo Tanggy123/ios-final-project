@@ -13,7 +13,7 @@ class DemoCell: FoldingCell {
     @IBOutlet weak var closedEventDateLabel: UILabel!
     @IBOutlet weak var closedEventTimeLabel: UILabel!
     @IBOutlet weak var closedEventTypeLabel: UILabel!
-    @IBOutlet weak var openEventTitleLabel: UILabel!
+    @IBOutlet weak var openEventTitleLabel: UILabel! { didSet { openEventTitleLabel.backgroundColor = UIColor.flatMintColorDark() } }
     @IBOutlet weak var openEventDateLabel: UILabel!
     @IBOutlet weak var openEventTimeLabel: UILabel!
     @IBOutlet weak var openAddressLabel: UILabel!

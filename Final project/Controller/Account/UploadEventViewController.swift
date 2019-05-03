@@ -79,7 +79,7 @@ class UploadEventViewController: UIViewController {
             eventTitleLabel.text = "Event Title"
             eventTitleLabel.textAlignment = .left
             eventTitleLabel.textColor = .black
-            eventTitleLabel.font = UIFont.systemFont(ofSize: 30)
+            eventTitleLabel.font = UIFont.systemFont(ofSize: 24)
         } else {
             eventTitleLabel.frame = CGRect(x: 10, y: 10, width: view.frame.width, height: 40)
             currentHeightScrollable += eventTitleLabel.frame.height
@@ -102,7 +102,7 @@ class UploadEventViewController: UIViewController {
             eventDescriptionLabel.text = "Event Description"
             eventDescriptionLabel.textAlignment = .left
             eventDescriptionLabel.textColor = .black
-            eventDescriptionLabel.font = UIFont.systemFont(ofSize: 30)
+            eventDescriptionLabel.font = UIFont.systemFont(ofSize: 24)
         } else {
             eventDescriptionLabel.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width, height: 40)
             currentHeightScrollable += eventDescriptionLabel.frame.height
@@ -116,7 +116,7 @@ class UploadEventViewController: UIViewController {
             eventDescriptionTextField.layer.borderColor = UIColor.lightGray.cgColor
             eventDescriptionTextField.layer.borderWidth = 0.5
             eventDescriptionTextField.layer.cornerRadius = 5.0
-            eventDescriptionTextField.font = UIFont.systemFont(ofSize: 24)
+            eventDescriptionTextField.font = UIFont.systemFont(ofSize: 20)
         } else {
             eventDescriptionTextField.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width - 20, height: 300)
             currentHeightScrollable += eventDescriptionTextField.frame.height + 30

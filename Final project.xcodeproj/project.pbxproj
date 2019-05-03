@@ -25,6 +25,8 @@
 		BD649768225C0CAA00F6D83E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD649766225C0CAA00F6D83E /* Main.storyboard */; };
 		BD64976A225C0CAB00F6D83E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD649769225C0CAB00F6D83E /* Assets.xcassets */; };
 		BD64976D225C0CAB00F6D83E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD64976B225C0CAB00F6D83E /* LaunchScreen.storyboard */; };
+		BD7C20B6227B9CC4008EC187 /* NewRecipeDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C20B5227B9CC4008EC187 /* NewRecipeDetailTableViewCell.swift */; };
+		BD7C20B8227B9CDE008EC187 /* NewRecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C20B7227B9CDE008EC187 /* NewRecipeDetailViewController.swift */; };
 		BD7F6A092279460D005B26E4 /* RecipeEndCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A082279460D005B26E4 /* RecipeEndCollectionViewCell.swift */; };
 		BD7F6A0B227962B2005B26E4 /* AllRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A0A227962B2005B26E4 /* AllRecipeViewController.swift */; };
 		BD7F6A0D22796AE3005B26E4 /* UserLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A0C22796AE3005B26E4 /* UserLogInViewController.swift */; };
@@ -38,6 +40,7 @@
 		BDC77B42227B643C0030146A /* LikedRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC77B41227B643C0030146A /* LikedRecipeTableViewCell.swift */; };
 		BDC77B44227B6CEE0030146A /* LikedEventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC77B43227B6CEE0030146A /* LikedEventDetailViewController.swift */; };
 		BDC77B46227B6CFD0030146A /* LikedRecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC77B45227B6CFD0030146A /* LikedRecipeDetailViewController.swift */; };
+		BDE966B1227BC41B0042BBE1 /* test.mov in Resources */ = {isa = PBXBuildFile; fileRef = BDE966B0227BC41B0042BBE1 /* test.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +66,8 @@
 		BD649769225C0CAB00F6D83E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD64976C225C0CAB00F6D83E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD64976E225C0CAB00F6D83E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD7C20B5227B9CC4008EC187 /* NewRecipeDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeDetailTableViewCell.swift; sourceTree = "<group>"; };
+		BD7C20B7227B9CDE008EC187 /* NewRecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeDetailViewController.swift; sourceTree = "<group>"; };
 		BD7F6A082279460D005B26E4 /* RecipeEndCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEndCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD7F6A0A227962B2005B26E4 /* AllRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecipeViewController.swift; sourceTree = "<group>"; };
 		BD7F6A0C22796AE3005B26E4 /* UserLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserLogInViewController.swift; path = Controller/UserLogInViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +81,7 @@
 		BDC77B41227B643C0030146A /* LikedRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedRecipeTableViewCell.swift; sourceTree = "<group>"; };
 		BDC77B43227B6CEE0030146A /* LikedEventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedEventDetailViewController.swift; sourceTree = "<group>"; };
 		BDC77B45227B6CFD0030146A /* LikedRecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedRecipeDetailViewController.swift; sourceTree = "<group>"; };
+		BDE966B0227BC41B0042BBE1 /* test.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = test.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,7 @@
 		BD1C4215225C216800F3747D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BDE966B0227BC41B0042BBE1 /* test.mov */,
 				BD649762225C0CAA00F6D83E /* AppDelegate.swift */,
 				1322F8BE226DDD7E00FAA7FD /* EventInfo.swift */,
 				1322F8C0226DE23D00FAA7FD /* User.swift */,
@@ -120,8 +127,8 @@
 		BD1C4217225C217700F3747D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BD81BF0A2274DF9C00CC0F1E /* Recipe */,
 				BD81BF0C2274DFBE00CC0F1E /* Event */,
+				BD81BF0A2274DF9C00CC0F1E /* Recipe */,
 				BD81BF0D2274DFCA00CC0F1E /* Map */,
 				BD81BF0E2274DFD300CC0F1E /* Account */,
 			);
@@ -164,6 +171,8 @@
 		BD81BF0A2274DF9C00CC0F1E /* Recipe */ = {
 			isa = PBXGroup;
 			children = (
+				BD7C20B5227B9CC4008EC187 /* NewRecipeDetailTableViewCell.swift */,
+				BD7C20B7227B9CDE008EC187 /* NewRecipeDetailViewController.swift */,
 				BD5A2B02226FC2AA00D88CBD /* RecipeViewController.swift */,
 				BD5A2B04226FC4F100D88CBD /* RecipeTableViewCell.swift */,
 				BD7F6A0A227962B2005B26E4 /* AllRecipeViewController.swift */,
@@ -273,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD64976D225C0CAB00F6D83E /* LaunchScreen.storyboard in Resources */,
+				BDE966B1227BC41B0042BBE1 /* test.mov in Resources */,
 				1388D96A2266B694008C8656 /* GoogleService-Info.plist in Resources */,
 				BD64976A225C0CAB00F6D83E /* Assets.xcassets in Resources */,
 				BD649768225C0CAA00F6D83E /* Main.storyboard in Resources */,
@@ -311,6 +321,7 @@
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/VideoSplashKit/VideoSplashKit.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -322,6 +333,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VideoSplashKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -361,6 +373,8 @@
 				BDA0A5F6225F8EA10062D31A /* RecipeDetailViewController.swift in Sources */,
 				BD7F6A0F22796D0E005B26E4 /* UploadEventViewController.swift in Sources */,
 				BD1C421D225C21DD00F3747D /* AccountViewController.swift in Sources */,
+				BD7C20B8227B9CDE008EC187 /* NewRecipeDetailViewController.swift in Sources */,
+				BD7C20B6227B9CC4008EC187 /* NewRecipeDetailTableViewCell.swift in Sources */,
 				BD5A2B07226FC51800D88CBD /* RecipeCollectionViewCell.swift in Sources */,
 				BDC77B46227B6CFD0030146A /* LikedRecipeDetailViewController.swift in Sources */,
 				BD649763225C0CAA00F6D83E /* AppDelegate.swift in Sources */,

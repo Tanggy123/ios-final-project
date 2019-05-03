@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import MapKit
 
 class MapViewController: UIViewController {
+    
+    @IBOutlet weak var searchBar: UISearchBar! { didSet { searchBar.barTintColor = UIColor.flatMintColorDark() } }
+    @IBOutlet weak var mapView: MKMapView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

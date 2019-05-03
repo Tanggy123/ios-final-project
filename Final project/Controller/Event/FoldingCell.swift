@@ -28,6 +28,9 @@ open class FoldingCell: UITableViewCell {
     
     @objc open var isUnfolded = false
     
+    @IBOutlet weak var leftView: UIView! { didSet { leftView.backgroundColor = UIColor.flatMintColorDark() } }
+    
+    
     /// UIView is displayed when cell open
     @IBOutlet open var containerView: UIView!
     @IBOutlet open var containerViewTop: NSLayoutConstraint!

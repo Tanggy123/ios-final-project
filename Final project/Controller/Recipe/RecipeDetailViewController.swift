@@ -100,7 +100,7 @@ class RecipeDetailViewController: UIViewController {
         if isSettingAttributes {
             foodTypeLabel.text = "    Breakfast and Brunch"
             foodTypeLabel.textAlignment = .left
-            foodTypeLabel.backgroundColor = .yellow
+            foodTypeLabel.backgroundColor = UIColor.flatMintColorDark()
             foodTypeLabel.textColor = .black
             foodTypeLabel.font = UIFont.systemFont(ofSize: 15)
         } else {
@@ -114,7 +114,7 @@ class RecipeDetailViewController: UIViewController {
         if isSettingAttributes {
             foodTitle.text = "   Food Title"
             foodTitle.textAlignment = .left
-            foodTitle.backgroundColor = .yellow
+            foodTitle.backgroundColor = UIColor.flatMintColorDark()
             foodTitle.textColor = .black
             foodTitle.font = UIFont.systemFont(ofSize: 30)
             foodTitle.numberOfLines = 3
@@ -130,7 +130,7 @@ class RecipeDetailViewController: UIViewController {
         if isSettingAttributes {
             foodTimeLabel.text = "    30 mins, serves 2"
             foodTimeLabel.textAlignment = .left
-            foodTimeLabel.backgroundColor = .yellow
+            foodTimeLabel.backgroundColor = UIColor.flatMintColorDark()
             foodTimeLabel.textColor = .black
             foodTimeLabel.font = UIFont.systemFont(ofSize: 15)
         } else {
@@ -169,7 +169,7 @@ class RecipeDetailViewController: UIViewController {
         if isSettingAttributes {
             likeButton.setTitle("Like this recipe", for: .normal)
             likeButton.setTitleColor(UIColor.black, for: .normal)
-            likeButton.backgroundColor = .yellow
+            likeButton.backgroundColor = UIColor.flatMintColorDark()
             likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         } else {
             likeButton.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width - 20, height: 50)
@@ -180,7 +180,7 @@ class RecipeDetailViewController: UIViewController {
     
     func setIngredientLabel(isSettingAttributes: Bool) {
         if isSettingAttributes {
-            let txt = NSAttributedString(string: "  Ingredient", attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue, NSAttributedString.Key.underlineColor: UIColor.yellow])
+            let txt = NSAttributedString(string: "  Ingredient", attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue, NSAttributedString.Key.underlineColor: UIColor.flatMintColorDark()])
             ingredientLabel.attributedText = txt
             ingredientLabel.textAlignment = .left
             ingredientLabel.textColor = .black
@@ -211,7 +211,7 @@ class RecipeDetailViewController: UIViewController {
     
     func setProcedureLabel(isSettingAttributes: Bool) {
         if isSettingAttributes {
-            let txt = NSAttributedString(string: "  Procedure", attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue, NSAttributedString.Key.underlineColor: UIColor.yellow])
+            let txt = NSAttributedString(string: "  Procedure", attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue, NSAttributedString.Key.underlineColor: UIColor.flatMintColorDark()])
             procedureLabel.attributedText = txt
             procedureLabel.textAlignment = .left
             procedureLabel.textColor = .black

@@ -9,5 +9,6 @@ target 'Final project' do
    pod 'Firebase/Core'
    pod 'Firebase/Firestore'
    pod 'ChameleonFramework/Swift'
+   pod 'VideoSplashKit'
    
 end

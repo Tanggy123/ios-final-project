@@ -88,6 +88,13 @@
 			<key>orderHint</key>
 			<integer>16</integer>
 		</dict>
+		<key>VideoSplashKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>17</integer>
+		</dict>
 		<key>gRPC-C++-gRPCCertificates.xcscheme</key>
 		<dict>
 			<key>isShown</key>

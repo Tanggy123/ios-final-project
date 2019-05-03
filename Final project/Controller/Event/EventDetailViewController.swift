@@ -115,7 +115,7 @@ class EventDetailViewController: UIViewController {
         if isSettingAttributes {
             likeButton.setTitle("Like this event", for: .normal)
             likeButton.setTitleColor(UIColor.black, for: .normal)
-            likeButton.backgroundColor = .green
+            likeButton.backgroundColor = UIColor.flatMintColorDark()
             likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         } else {
             likeButton.frame = CGRect(x: 20, y: currentHeightScrollable, width: view.frame.width - 40, height: 50)
