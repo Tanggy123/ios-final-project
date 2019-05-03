@@ -12,12 +12,50 @@ class AccountViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var editInformationButton: UIButton! { didSet { editInformationButton.backgroundColor = UIColor.flatMintColorDark() } }
-    @IBOutlet weak var uploadEventButton: UIButton! { didSet { uploadEventButton.backgroundColor = UIColor.flatMintColorDark() } }
-    @IBOutlet weak var uploadRecipeButton: UIButton! { didSet { uploadRecipeButton.backgroundColor = UIColor.flatMintColorDark() } }
-    @IBOutlet weak var likedEventButton: UIButton! { didSet { likedEventButton.backgroundColor = UIColor.flatMintColorDark() } }
-    @IBOutlet weak var likedRecipeButton: UIButton! { didSet { likedRecipeButton.backgroundColor = UIColor.flatMintColorDark() } }
-    @IBOutlet weak var userNameButton: UIButton! { didSet { userNameButton.backgroundColor = UIColor.flatMintColorDark() } }
+    @IBOutlet weak var editInformationButton: UIButton! {
+        didSet {
+            editInformationButton.setTitle("   " + "Edit Information", for: .normal)
+            editInformationButton.contentHorizontalAlignment = .left
+            editInformationButton.backgroundColor = UIColor.flatMintColorDark()
+        }
+    }
+    @IBOutlet weak var uploadEventButton: UIButton! {
+        didSet {
+            uploadEventButton.setTitle("   " + "Upload Event", for: .normal)
+            uploadEventButton.contentHorizontalAlignment = .left
+            uploadEventButton.backgroundColor = UIColor.flatMintColorDark()
+        }
+    }
+    @IBOutlet weak var uploadRecipeButton: UIButton! {
+        didSet {
+            uploadRecipeButton.setTitle("   " + "Upload Recipe", for: .normal)
+            uploadRecipeButton.contentHorizontalAlignment = .left
+            uploadRecipeButton.backgroundColor = UIColor.flatMintColorDark()
+        }
+    }
+    @IBOutlet weak var likedEventButton: UIButton! {
+        didSet {
+            likedEventButton.setTitle("   " + "Liked Event", for: .normal)
+            likedEventButton.contentHorizontalAlignment = .left
+            likedEventButton.backgroundColor = UIColor.flatMintColorDark()
+        }
+    }
+    @IBOutlet weak var likedRecipeButton: UIButton! {
+        didSet {
+            likedRecipeButton.setTitle("   " + "Liked Recipe", for: .normal)
+            likedRecipeButton.contentHorizontalAlignment = .left
+            likedRecipeButton.backgroundColor = UIColor.flatMintColorDark()
+        }
+    }
+    @IBOutlet weak var userNameButton: UIButton! {
+        didSet {
+            userNameButton.setTitle("   " + "User Name", for: .normal)
+            userNameButton.setTitleColor(UIColor.black, for: .normal)
+            userNameButton.contentHorizontalAlignment = .left
+            userNameButton.backgroundColor = UIColor.white
+            userNameButton.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        }
+    }
     
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {

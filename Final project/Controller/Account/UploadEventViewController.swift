@@ -13,7 +13,14 @@ class UploadEventViewController: UIViewController {
     
     // -------------------------------
     // This is where user input event information stored
+    private var dict: Dictionary<String, Any> = ["Address": 0,
+                                                 "EventName": 0,
+                                                 "EventType": "green",
+                                                 "Host": currentUser,
+                                                 "Liked": 1000,
+                                                 "Time": 0]
     var eventTitle: String?
+    var eventAddress: String?
     var eventDescription: String?
     var selectedEventDate: Date?
     var selectedEventTime: Date?
@@ -24,8 +31,11 @@ class UploadEventViewController: UIViewController {
         didSet {
             let endEditTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEdit))
             scrollView.addGestureRecognizer(endEditTapGestureRecognizer)
+            setUserProfileImageView(isSettingAttributes: true)
             setEventTitleLabel(isSettingAttributes: true)
             setEventTitleTextField(isSettingAttributes: true)
+            setEventAddressLabel(isSettingAttributes: true)
+            setEventAddressTextField(isSettingAttributes: true)
             setEventDescriptionLabel(isSettingAttributes: true)
             setEventDescriptionTextField(isSettingAttributes: true)
             setEventDateLabel(isSettingAttributes: true)
@@ -34,13 +44,17 @@ class UploadEventViewController: UIViewController {
             setEventTimeTextField(isSettingAttributes: true)
             setEventDatePickerView(isSettingAttributes: true)
             setEventTimePickerView(isSettingAttributes: true)
+            setUploadImageButton(isSettingAttributes: true)
             setUploadCompleteButton(isSettingAttributes: true)
         }
     }
     
     // MARK: - Variables
+    var userProfileImageView = UIImageView()
     var eventTitleLabel = UILabel()
     var eventTitleTextField = UITextField()
+    var eventAddressLabel = UILabel()
+    var eventAddressTextField = UITextField()
     var eventDescriptionLabel = UILabel()
     var eventDescriptionTextField = UITextView()
     var eventDateLabel = UILabel()
@@ -49,7 +63,7 @@ class UploadEventViewController: UIViewController {
     var eventTimeTextField = UITextField()
     var eventDatePickerView = UIDatePicker()
     var eventTimePickerView = UIDatePicker()
-//    var uploadImageButton = UIButton()
+    var uploadImageButton = UIButton()
     var uploadCompleteButton = UIButton()
     
     var currentHeightScrollable: CGFloat = 10
@@ -58,8 +72,12 @@ class UploadEventViewController: UIViewController {
     // MARK: - Inits
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.backgroundColor = UIColor.flatMintColorDark()
+        setUserProfileImageView(isSettingAttributes: false)
         setEventTitleLabel(isSettingAttributes: false)
         setEventTitleTextField(isSettingAttributes: false)
+        setEventAddressLabel(isSettingAttributes: false)
+        setEventAddressTextField(isSettingAttributes: false)
         setEventDescriptionLabel(isSettingAttributes: false)
         setEventDescriptionTextField(isSettingAttributes: false)
         setEventDateLabel(isSettingAttributes: false)
@@ -68,12 +86,23 @@ class UploadEventViewController: UIViewController {
         setEventTimeTextField(isSettingAttributes: false)
         setEventDatePickerView(isSettingAttributes: false)
         setEventTimePickerView(isSettingAttributes: false)
+        setUploadImageButton(isSettingAttributes: false)
         setUploadCompleteButton(isSettingAttributes: false)
         scrollView.contentSize = CGSize(width: view.frame.width, height: currentHeightScrollable + 400)
         // Do any additional setup after loading the view.
     }
     
     // MARK: - Functions
+    func setUserProfileImageView(isSettingAttributes: Bool) {
+        if isSettingAttributes {
+            userProfileImageView.image = UIImage(named: "user-profile")!
+        } else {
+            userProfileImageView.frame = CGRect(x: 20, y: 20, width: 60, height: 60)
+            currentHeightScrollable += userProfileImageView.frame.height + 30
+            scrollView.addSubview(userProfileImageView)
+        }
+    }
+    
     func setEventTitleLabel(isSettingAttributes: Bool) {
         if isSettingAttributes {
             eventTitleLabel.text = "Event Title"
@@ -81,7 +110,7 @@ class UploadEventViewController: UIViewController {
             eventTitleLabel.textColor = .black
             eventTitleLabel.font = UIFont.systemFont(ofSize: 24)
         } else {
-            eventTitleLabel.frame = CGRect(x: 10, y: 10, width: view.frame.width, height: 40)
+            eventTitleLabel.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width, height: 40)
             currentHeightScrollable += eventTitleLabel.frame.height
             scrollView.addSubview(eventTitleLabel)
         }
@@ -94,6 +123,29 @@ class UploadEventViewController: UIViewController {
             eventTitleTextField.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width - 20, height: 40)
             currentHeightScrollable += eventTitleTextField.frame.height + 30
             scrollView.addSubview(eventTitleTextField)
+        }
+    }
+    
+    func setEventAddressLabel(isSettingAttributes: Bool) {
+        if isSettingAttributes {
+            eventAddressLabel.text = "Event Address"
+            eventAddressLabel.textAlignment = .left
+            eventAddressLabel.textColor = .black
+            eventAddressLabel.font = UIFont.systemFont(ofSize: 24)
+        } else {
+            eventAddressLabel.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width, height: 40)
+            currentHeightScrollable += eventAddressLabel.frame.height
+            scrollView.addSubview(eventAddressLabel)
+        }
+    }
+    
+    func setEventAddressTextField(isSettingAttributes: Bool) {
+        if isSettingAttributes {
+            eventAddressTextField.borderStyle = .roundedRect
+        } else {
+            eventAddressTextField.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width - 20, height: 40)
+            currentHeightScrollable += eventAddressTextField.frame.height + 30
+            scrollView.addSubview(eventAddressTextField)
         }
     }
     
@@ -190,21 +242,26 @@ class UploadEventViewController: UIViewController {
         }
     }
     
-//    func setUploadImageButton(isSettingAttributes: Bool) {
-//        if isSettingAttributes {
-//            uploadImageButton.setTitle("Upload Image", for: .normal)
-//            uploadImageButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+    func setUploadImageButton(isSettingAttributes: Bool) {
+        if isSettingAttributes {
+            uploadImageButton.setAttributedTitle(NSAttributedString(string: "Upload Image", attributes: [NSAttributedString.Key.foregroundColor: UIColor.blue, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue, NSAttributedString.Key.underlineColor: UIColor.flatMintColorDark()]), for: .normal)
+            uploadImageButton.setTitleColor(UIColor.blue, for: .normal)
+            uploadImageButton.contentHorizontalAlignment = .left
+            uploadImageButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
 //            uploadImageButton.addTarget(self, action: #selector(uploadImageButtonTapped), for: .touchUpInside)
-//        } else {
-//
-//        }
-//    }
+        } else {
+            uploadImageButton.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width - 20, height: 50)
+            currentHeightScrollable += uploadImageButton.frame.height + 15
+            scrollView.addSubview(uploadImageButton)
+        }
+    }
     
     func setUploadCompleteButton(isSettingAttributes: Bool) {
         if isSettingAttributes {
             uploadCompleteButton.setTitle("Upload", for: .normal)
             uploadCompleteButton.setTitleColor(UIColor.black, for: .normal)
-            uploadCompleteButton.backgroundColor = .lightGray
+            uploadCompleteButton.backgroundColor = UIColor.yellow
+            uploadCompleteButton.titleLabel?.font = UIFont.systemFont(ofSize: 25)
             uploadCompleteButton.addTarget(self, action: #selector(uploadCompleteButtonTapped), for: .touchUpInside)
         } else {
             uploadCompleteButton.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width - 20, height: 50)
@@ -212,6 +269,7 @@ class UploadEventViewController: UIViewController {
             scrollView.addSubview(uploadCompleteButton)
         }
     }
+    
     
     @objc func eventDateChanged(datePicker: UIDatePicker) {
         let dateFormatter = DateFormatter()
@@ -234,7 +292,7 @@ class UploadEventViewController: UIViewController {
     }
     
     @objc func uploadCompleteButtonTapped() {
-        if (eventTitleTextField.text == "" || eventDescriptionTextField.text == "" || eventDateTextField.text == "" || eventTimeTextField.text == "") {
+        if (eventTitleTextField.text == "" || eventDescriptionTextField.text == "" || eventDateTextField.text == "" || eventTimeTextField.text == "" || eventAddressTextField.text == "") {
             let alt = UIAlertController(title: "", message: "Fill in all the blank before uploading", preferredStyle: .alert)
             alt.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
                 (_)in
@@ -243,8 +301,17 @@ class UploadEventViewController: UIViewController {
         } else {
             eventTitle = eventTitleTextField.text
             eventDescription = eventDescriptionTextField.text
-            print(eventTitle!)
-            print(eventDescription!)
+            eventAddress = eventAddressTextField.text
+            
+            dict["Address"] = eventAddress
+            dict["EventName"] = eventTitle
+            dict["Host"] = currentUser
+            dict["Liked"] = 1000
+            dict["Time"] = selectedEventDate
+            
+            eventCounter += 1
+            Events[eventCounter] = dict
+            
             let alt = UIAlertController(title: "", message: "Upload Complete", preferredStyle: .alert)
             alt.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
                 (_)in

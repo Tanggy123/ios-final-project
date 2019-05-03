@@ -13,24 +13,43 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var userNameLabel: UILabel! { didSet { userNameLabel.textColor = UIColor.flatMintColorDark() } }
+    @IBOutlet weak var userNameLabel: UILabel! {
+        didSet {
+            userNameLabel.textColor = UIColor.flatMint()
+        }
+    }
     
-    @IBOutlet weak var passwordLabel: UILabel! { didSet { passwordLabel.textColor = UIColor.flatMintColorDark() } }
+    @IBOutlet weak var passwordLabel: UILabel! {
+        didSet {
+            passwordLabel.textColor = UIColor.flatMint()
+        }
+    }
     
     @IBOutlet weak var userNameTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBOutlet weak var signinButton: UIButton! { didSet { signinButton.setTitleColor(UIColor.flatMintColorDark(), for: .normal) } }
+    @IBOutlet weak var signinButton: UIButton! {
+        didSet {
+            signinButton.setTitleColor(UIColor.flatMint(), for: .normal)
+        }
+    }
     
-    @IBOutlet weak var registerButton: UIButton! { didSet { registerButton.setTitleColor(UIColor.flatMintColorDark(), for: .normal) } }
+    @IBOutlet weak var registerButton: UIButton! {
+        didSet {
+            registerButton.setTitleColor(UIColor.flatMint(), for: .normal)
+        }
+    }
     
-    @IBOutlet weak var continueAsGuestButton: UIButton! { didSet { continueAsGuestButton.setTitleColor(UIColor.flatMintColorDark(), for: .normal) } }
+    @IBOutlet weak var continueAsGuestButton: UIButton! {
+        didSet {
+            continueAsGuestButton.setTitleColor(UIColor.flatMint(), for: .normal)
+        }
+    }
     
     
     
     // MARK: - Variables
-    var userIsLoggedIn: Bool = false
     
     // MARK - Inits
     
@@ -42,12 +61,29 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        userNameTextField.text = ""
+        passwordTextField.text = ""
+    }
     
     // MARK: - Functions
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
-        userIsLoggedIn = true
-        performSegue(withIdentifier: "SignInSegue", sender: self)
+        if let userDict = UserDictionary[userNameTextField.text!] as? Dictionary<String, Any> {
+            if let password = userDict["Password"] as? String {
+                if password == passwordTextField.text {
+                    userIsLoggedIn = true
+                    currentUser = userNameTextField.text
+                    performSegue(withIdentifier: "SignInSegue", sender: self)
+                    return
+                }
+            }
+        }
+        let alt = UIAlertController(title: "", message: "Invalid Log in", preferredStyle: .alert)
+        alt.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
+            (_)in
+        }))
+        self.present(alt, animated: true, completion: nil)
     }
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {

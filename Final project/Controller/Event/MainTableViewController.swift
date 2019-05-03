@@ -37,7 +37,7 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let db = Firestore.firestore()
-        for index in 0...Const.rowsCount-3 {
+        for index in 0...Const.rowsCount - 3 {
             let event = db.collection("Events").document("Event" + String(index))
             event.getDocument {
                 (document, error) in
@@ -95,7 +95,7 @@ class MainTableViewController: UITableViewController {
 extension MainTableViewController {
 
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 5
+        return Events.count
     }
 
     override func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
