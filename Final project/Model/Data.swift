@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import FirebaseFirestore
+import Firebase
 
 /* Structure to store user info and associated event info.*/
 // MARK: - User data
@@ -26,9 +26,8 @@ var eventCounter = Events.count
 
 
 // MARK: - Recipe Data
-var Recipes: [String: Dictionary<String, Any>] = [:]
+var Recipes: [Int: Dictionary<String, Any>] = [:]
 var recipeCounter = Recipes.count
-
 
 
 // MARK: - Functions
@@ -51,17 +50,25 @@ public func writeToFirebase(toCollection collec: FirebaseCollection, toDocument 
     }
 }
 
-public func readFromFirebase(withDb db: Firestore, fromCollection collec: FirebaseCollection, fromDocument doc: String) -> Dictionary<String, Any> {
+public func readFromFirebase(fromCollection collec: FirebaseCollection, fromDocument doc: String) {
+    let db = Firestore.firestore()
     let docRef = db.collection(collec.rawValue).document(doc)
-    var toReturn: Dictionary<String, Any> = [:]
     docRef.getDocument { (document, error) in
         if let document = document, document.exists {
-            if let data = document.data() {
-                toReturn = data
+            if let dict = document.data() {
+                switch collec {
+                case .event:
+                    let index = Int(String(doc.last!))
+                    Events[index!] = dict
+                case .user:
+                    Users[doc] = dict
+                case .recipe:
+                    let index = Int(String(doc.last!))
+                    Recipes[index!] = dict
+                }
             }
         } else {
             print("Document does not exist")
         }
     }
-    return toReturn
 }

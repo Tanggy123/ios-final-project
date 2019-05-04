@@ -15,15 +15,17 @@ class UploadEventViewController: UIViewController {
     // This is where user input event information stored
     private var dict: Dictionary<String, Any> = ["Address": 0,
                                                  "EventName": 0,
-                                                 "EventType": "green",
-                                                 "Host": currentUser,
+                                                 "EventType": "",
+                                                 "Host": "",
                                                  "Liked": 1000,
                                                  "Time": 0]
+    var index = 0
     var eventTitle: String?
     var eventAddress: String?
     var eventDescription: String?
     var selectedEventDate: Date?
     var selectedEventTime: Date?
+    var eventType: String?
     // -------------------------------
     
     // MARK: - Outlets
@@ -34,6 +36,8 @@ class UploadEventViewController: UIViewController {
             setUserProfileImageView(isSettingAttributes: true)
             setEventTitleLabel(isSettingAttributes: true)
             setEventTitleTextField(isSettingAttributes: true)
+            setEventTypeLabel(isSettingAttributes: true)
+            setEventTypeTextField(isSettingAttributes: true)
             setEventAddressLabel(isSettingAttributes: true)
             setEventAddressTextField(isSettingAttributes: true)
             setEventDescriptionLabel(isSettingAttributes: true)
@@ -53,6 +57,8 @@ class UploadEventViewController: UIViewController {
     var userProfileImageView = UIImageView()
     var eventTitleLabel = UILabel()
     var eventTitleTextField = UITextField()
+    var eventTypeLabel = UILabel()
+    var eventTypeTextField = UITextField()
     var eventAddressLabel = UILabel()
     var eventAddressTextField = UITextField()
     var eventDescriptionLabel = UILabel()
@@ -76,6 +82,8 @@ class UploadEventViewController: UIViewController {
         setUserProfileImageView(isSettingAttributes: false)
         setEventTitleLabel(isSettingAttributes: false)
         setEventTitleTextField(isSettingAttributes: false)
+        setEventTypeLabel(isSettingAttributes: false)
+        setEventTypeTextField(isSettingAttributes: false)
         setEventAddressLabel(isSettingAttributes: false)
         setEventAddressTextField(isSettingAttributes: false)
         setEventDescriptionLabel(isSettingAttributes: false)
@@ -123,6 +131,29 @@ class UploadEventViewController: UIViewController {
             eventTitleTextField.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width - 20, height: 40)
             currentHeightScrollable += eventTitleTextField.frame.height + 30
             scrollView.addSubview(eventTitleTextField)
+        }
+    }
+    
+    func setEventTypeLabel(isSettingAttributes: Bool) {
+        if isSettingAttributes {
+            eventTypeLabel.text = "Describe your Event Type"
+            eventTypeLabel.textAlignment = .left
+            eventTypeLabel.textColor = .black
+            eventTypeLabel.font = UIFont.systemFont(ofSize: 24)
+        } else {
+            eventTypeLabel.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width, height: 40)
+            currentHeightScrollable += eventTypeLabel.frame.height
+            scrollView.addSubview(eventTypeLabel)
+        }
+    }
+    
+    func setEventTypeTextField(isSettingAttributes: Bool) {
+        if isSettingAttributes {
+            eventTypeTextField.borderStyle = .roundedRect
+        } else {
+            eventTypeTextField.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width - 20, height: 40)
+            currentHeightScrollable += eventTypeTextField.frame.height + 30
+            scrollView.addSubview(eventTypeTextField)
         }
     }
     
@@ -292,7 +323,7 @@ class UploadEventViewController: UIViewController {
     }
     
     @objc func uploadCompleteButtonTapped() {
-        if (eventTitleTextField.text == "" || eventDescriptionTextField.text == "" || eventDateTextField.text == "" || eventTimeTextField.text == "" || eventAddressTextField.text == "") {
+        if (eventTitleTextField.text == "" || eventDescriptionTextField.text == "" || eventDateTextField.text == "" || eventTimeTextField.text == "" || eventAddressTextField.text == "" || eventTypeTextField.text == "") {
             let alt = UIAlertController(title: "", message: "Fill in all the blank before uploading", preferredStyle: .alert)
             alt.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
                 (_)in
@@ -302,17 +333,21 @@ class UploadEventViewController: UIViewController {
             eventTitle = eventTitleTextField.text
             eventDescription = eventDescriptionTextField.text
             eventAddress = eventAddressTextField.text
+            eventType = eventTypeTextField.text
             
             dict["Address"] = eventAddress
+            dict["Description"] = eventDescription
             dict["EventName"] = eventTitle
+            dict["EventType"] = eventType
             dict["Host"] = currentUser
             dict["Liked"] = 1000
             dict["Time"] = selectedEventDate
             
             
             // TODO: Upload this event to firebase
+            writeToFirebase(toCollection: .event, toDocument: "Event" + String(eventCounter), withDictionary: dict)
+            Events[eventCounter] = dict
             eventCounter += 1
-            Events[eventCounter - 1] = dict
             
             let alt = UIAlertController(title: "", message: "Upload Complete", preferredStyle: .alert)
             alt.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {

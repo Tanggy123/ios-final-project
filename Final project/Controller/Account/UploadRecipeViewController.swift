@@ -12,6 +12,7 @@ class UploadRecipeViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     // -------------------------------
     // This is where user input recipe information stored
+    var index = 0
     var hours = 0
     var mins = 0
     var servingNum = 0

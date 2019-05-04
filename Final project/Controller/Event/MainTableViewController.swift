@@ -38,21 +38,8 @@ class MainTableViewController: UITableViewController {
         super.viewDidLoad()
         let db = Firestore.firestore()
         for index in 0...Const.rowsCount - 3 {
-            Events[index] = readFromFirebase(withDb: db, fromCollection: .event, fromDocument: "Event" + String(index))
+            readFromFirebase(fromCollection: .event, fromDocument: "Event" + String(index))
             self.tableView.reloadData()
-//            let event = db.collection("Events").document("Event" + String(index))
-//            event.getDocument {
-//                (document, error) in
-//                if let doc = document, doc.exists {
-//                    if let data = doc.data() {
-//                        Events[index] = data
-//                        print(data)
-//                        self.tableView.reloadData()
-//                        }
-//                } else {
-//                        print("Document does not exist")
-//                }
-//            }
         }
         setup()
     }
