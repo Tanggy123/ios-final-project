@@ -206,10 +206,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hVR-XX-nQB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="95"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="hVR-XX-nQB">
+                                <rect key="frame" x="0.0" y="64" width="375" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="wf3-rm-31k"/>
+                                    <constraint firstAttribute="height" constant="75" id="wf3-rm-31k"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -222,7 +222,7 @@
                                 </scopeButtonTitles>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ytu-XX-70h">
-                                <rect key="frame" x="0.0" y="159" width="375" height="459"/>
+                                <rect key="frame" x="0.0" y="139" width="375" height="479"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewRecipeDetailTableViewCell" id="DFt-Ur-QmI" customClass="NewRecipeTableViewCell" customModule="Final_project" customModuleProvider="target">

@@ -22,7 +22,9 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
     var recipeProcedure = ""
     
     
-
+    var allArr: [Int] = [Int]()
+    
+    var currArr: [Int] = [Int]()
     // MARK: - Outlets
     @IBOutlet weak var recipeTableView: UITableView! {
         didSet {
@@ -32,7 +34,8 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
-            searchBar.barTintColor = UIColor.flatMintColorDark()
+            searchBar.barTintColor = themeColor
+            searchBar.delegate = self
         }
     }
     
@@ -41,37 +44,36 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for index in 0..<recipeCounter! {
-            readFromFirebase(fromCollection: .recipe, fromDocument: "Recipe" + String(index))
-        }
         self.recipeTableView.reloadData()
+        for key in Recipes.keys {
+            allArr.append(key)
+        }
+        for key in Recipes.keys {
+            currArr.append(key)
+        }
         setUp()
         // Do any additional setup after loading the view.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipeCounter!
+//        return recipeCounter!
+        return currArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewRecipeDetailTableViewCell") as? NewRecipeTableViewCell
-        let position = recipeCounter! - indexPath.row - 1
+//        let position = recipeCounter! - indexPath.row - 1
+        let position = currArr[indexPath.row]
         if let recipe = Recipes[position] {
             cell?.recipeTitleLabel.text = (recipe["Name"] as? String)!
             cell?.recipeInfoLabel.text = (recipe["CookTime"] as? String)! + ", Serves " + String((recipe["Serves"] as? Int)!)
-//            cell?.recipeServingNum = (recipe["Serves"] as? Int)!
-//            cell?.recipeDescription = (recipe["Description"] as? String)!
-//            cell?.recipeIndex = (recipe["Index"] as? Int)!
-//            cell?.recipeIngredient = (recipe["Ingredient"] as? String)!
-//            cell?.recipeProcedure = (recipe["Procedure"] as? String)!
-//            cell?.recipeAuthor = (recipe["Author"] as? String)!
-//            cell?.recipeCategory = (recipe["Category"] as? String)!
         }
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let position = recipeCounter! - indexPath.row - 1
+//        let position = recipeCounter! - indexPath.row - 1
+        let position = currArr[indexPath.row]
         if let recipe = Recipes[position] {
             recipeName = (recipe["Name"] as? String)!
             recipeCookTime = (recipe["CookTime"] as? String)!
@@ -88,13 +90,63 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     // MARK: - Functions
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        if searchText == "" {
+            currArr = allArr
+        } else {
+            currArr = allArr.filter({index -> Bool in
+                if let cate = Recipes[index]!["Category"] as? String {
+                    if let name = Recipes[index]!["Name"] as? String {
+                        if let descript = Recipes[index]!["Description"] as? String {
+                            if cate.lowercased().contains(searchText.lowercased()) || name.lowercased().contains(searchText.lowercased()) || descript.lowercased().contains(searchText.lowercased()) {
+                                return true
+                            }
+                        }
+                    }
+                }
+                return false
+            })
+        }
+        self.recipeTableView.reloadData()
     }
 
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-
-    }
+    
+//    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+//        switch selectedScope {
+//        case 0:
+//            currArr = allArr
+//        case 1:
+//            currArr = allArr.filter({index -> Bool in
+//                if let cate = Recipes[index]!["Category"] as? String {
+//                    if cate.lowercased().contains("protein") {
+//                        return true
+//                    }
+//                }
+//                return false
+//            })
+//        case 2:
+//            currArr = allArr.filter({index -> Bool in
+//                if let cate = Recipes[index]!["Category"] as? String {
+//                    if cate.lowercased().contains("vegetarian") {
+//                        return true
+//                    }
+//                }
+//                return false
+//            })
+//        case 3:
+//            currArr = allArr.filter({index -> Bool in
+//                if let cate = Recipes[index]!["Category"] as? String {
+//                    if cate.lowercased().contains("bakery") {
+//                        return true
+//                    }
+//                }
+//                return false
+//            })
+//        default:
+//            break
+//        }
+//    }
     
     func setUp() {
         if #available(iOS 10.0, *) {

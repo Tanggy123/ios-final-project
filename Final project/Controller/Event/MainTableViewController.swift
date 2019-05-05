@@ -55,6 +55,9 @@ class MainTableViewController: UITableViewController {
         for index in 0...eventCounter! - 1 {
             readFromFirebase(fromCollection: .event, fromDocument: "Event" + String(index))
         }
+        for index in 0..<recipeCounter! {
+            readFromFirebase(fromCollection: .recipe, fromDocument: "Recipe" + String(index))
+        }
         self.tableView.reloadData()
         setup()
     }
