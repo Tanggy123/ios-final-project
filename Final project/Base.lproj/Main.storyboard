@@ -780,10 +780,23 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="B9r-tA-krE">
                                 <rect key="frame" x="0.0" y="100" width="375" height="518"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TN5-y6-nZ7">
+                                <rect key="frame" x="304" y="117" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="jMX-uG-l9N"/>
+                                    <constraint firstAttribute="height" constant="55" id="xZ2-6J-A8q"/>
+                                </constraints>
+                                <state key="normal" title="Refresh"/>
+                                <connections>
+                                    <action selector="refreshButtonTapped:" destination="3gL-xn-7ma" eventType="touchUpInside" id="Via-UE-Qs0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="B9r-tA-krE" firstAttribute="top" secondItem="2lw-74-HKQ" secondAttribute="bottom" id="1Im-fP-nBr"/>
+                            <constraint firstItem="9dZ-AO-7va" firstAttribute="trailing" secondItem="TN5-y6-nZ7" secondAttribute="trailing" constant="16" id="62v-gG-H0g"/>
+                            <constraint firstItem="TN5-y6-nZ7" firstAttribute="top" secondItem="2lw-74-HKQ" secondAttribute="bottom" constant="17" id="7EB-4H-soV"/>
                             <constraint firstAttribute="trailing" secondItem="2lw-74-HKQ" secondAttribute="trailing" id="8cG-mH-6e1"/>
                             <constraint firstItem="2lw-74-HKQ" firstAttribute="top" secondItem="9dZ-AO-7va" secondAttribute="top" id="Bsh-m5-fZq"/>
                             <constraint firstItem="9dZ-AO-7va" firstAttribute="bottom" secondItem="B9r-tA-krE" secondAttribute="bottom" id="Lyp-qA-xLJ"/>
@@ -796,6 +809,7 @@
                     <tabBarItem key="tabBarItem" title="Map" image="map-icon" id="dxh-PP-X3X"/>
                     <connections>
                         <outlet property="mapView" destination="B9r-tA-krE" id="Qpn-vg-lKp"/>
+                        <outlet property="refreshButton" destination="TN5-y6-nZ7" id="oL6-md-n7m"/>
                         <outlet property="searchBar" destination="2lw-74-HKQ" id="VLx-Ut-CQn"/>
                         <segue destination="CCf-2C-gDM" kind="show" identifier="MapDetailSegue" id="q6O-bD-gTi"/>
                     </connections>

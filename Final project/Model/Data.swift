@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import CoreLocation
 
 /* Structure to store user info and associated event info.*/
 var themeColor: UIColor = UIColor.flatMintColorDark()
@@ -29,6 +30,7 @@ var Users: [Int: Dictionary<String, Any>] = [:]
 
 
 // MARK: - Event data
+public var eventLocation: Dictionary<Int, CLLocation> = [:]
 var Events: [Int: Dictionary<String, Any>] = [:]
 var tappedCellNum = -1
 var eventCounter: Int? {

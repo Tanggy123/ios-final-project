@@ -34,6 +34,7 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField! {
         didSet {
             passwordTextField.autocorrectionType = .no
+            passwordTextField.isSecureTextEntry = true
         }
     }
     

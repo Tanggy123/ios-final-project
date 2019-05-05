@@ -23,6 +23,7 @@
 
 import UIKit
 import Firebase
+import CoreLocation
 
 class MainTableViewController: UITableViewController {
     
@@ -58,8 +59,21 @@ class MainTableViewController: UITableViewController {
         for index in 0..<recipeCounter! {
             readFromFirebase(fromCollection: .recipe, fromDocument: "Recipe" + String(index))
         }
-        self.tableView.reloadData()
         setup()
+    }
+    
+    func fetchLocationFromAddress(eventIndex: Int) {
+        let address = Events[eventIndex]!["Address"] as! String
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(address) { (placemarks, error) in
+            if error == nil {
+                if let placemark = placemarks?[0] {
+                    let location = placemark.location!
+                    eventLocation[eventIndex] = location
+                    return
+                }
+            }
+        }
     }
 
     private func setup() {
