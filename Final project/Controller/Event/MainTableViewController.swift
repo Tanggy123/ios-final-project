@@ -25,6 +25,17 @@ import UIKit
 import Firebase
 
 class MainTableViewController: UITableViewController {
+    
+    // Event information stored here
+    var eventAddress: String?
+    var eventDescription: String?
+    var eventName: String?
+    var eventType: String?
+    var eventHost: String?
+    var eventLiked: Int?
+    var eventTime: Date?
+    var eventIndex: Int?
+    
 
     enum Const {
         static let closeCellHeight: CGFloat = 179
@@ -33,14 +44,18 @@ class MainTableViewController: UITableViewController {
     }
     
     var cellHeights: [CGFloat] = []
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let db = Firestore.firestore()
-        for index in 0...Const.rowsCount - 3 {
+        for index in 0...eventCounter! - 1 {
             readFromFirebase(fromCollection: .event, fromDocument: "Event" + String(index))
-            self.tableView.reloadData()
         }
+        self.tableView.reloadData()
         setup()
     }
 
@@ -66,15 +81,26 @@ class MainTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if sender is UIButton {
-            if let dest = segue.destination as? EventDetailViewController {
-                if let event = Events[tappedCellNum] {
-                    if let eventTitle = event["EventName"] as? String {
-                        dest.eventName = eventTitle
-                    }
-                }
-            }
+        if let dest = segue.destination as? EventDetailViewController {
+            dest.eventAddress = eventAddress!
+            dest.eventName = eventName!
+            dest.eventDescription = eventDescription!
+            dest.eventType = eventType!
+            dest.eventHost = eventHost!
+            dest.eventLiked = eventLiked!
+            dest.eventTime = eventTime!
+            dest.eventIndex = eventIndex!
         }
+        
+//        if sender is UIButton {
+//            if let dest = segue.destination as? EventDetailViewController {
+//                if let event = Events[tappedCellNum] {
+//                    if let eventTitle = event["EventName"] as? String {
+//                        dest.eventName = eventTitle
+//                    }
+//                }
+//            }
+//        }
     }
     
 }
@@ -105,7 +131,8 @@ extension MainTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as! DemoCell
-        let position = Events.count - indexPath.row - 1
+        let position = eventCounter! - indexPath.row - 1
+        cell.currentVC = self
         if let event = Events[position] {
             if let eventName = event["EventName"] as? String {
                 cell.eventTitleLabel.text = eventName
@@ -126,9 +153,12 @@ extension MainTableViewController {
                 cell.closedEventTimeLabel.text = dateFormatter.string(from: date)
                 cell.openEventTimeLabel.text = dateFormatter.string(from: date)
             }
-            if let type = event["EventType"] as? String {
+            if let type = event["Type"] as? String {
                 cell.closedEventTypeLabel.text = type
                 cell.openEventTypeLabel.text = type
+            }
+            if let host = event["Host"] as? String {
+                cell.eventHostLabel.text = host
             }
         }
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
@@ -142,7 +172,6 @@ extension MainTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         let cell = tableView.cellForRow(at: indexPath) as! FoldingCell
 
         if cell.isAnimating() {
@@ -165,7 +194,27 @@ extension MainTableViewController {
             tableView.beginUpdates()
             tableView.endUpdates()
         }, completion: nil)
-    }
+        
+        
+//        let position = eventCounter! - indexPath.row - 1
+//        if let event = Events[position] {
+//            eventAddress = event["Address"] as? String
+//            eventDescription = event["Description"] as? String
+//            eventName = event["EventName"] as? String
+//            eventType = event["Type"] as? String
+//            eventHost = event["Host"] as? String
+//            eventLiked = event["Liked"] as? Int
+//            if let stamp = event["Time"] as? Timestamp {
+//                eventTime = stamp.dateValue()
+//            }
+//            print("in did select row at")
+//            print(eventAddress)
+//            print(eventDescription)
+//            print(eventTime)
+        
+        }
+        
+    
 
     
 }

@@ -12,6 +12,14 @@ class UploadRecipeViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     // -------------------------------
     // This is where user input recipe information stored
+    private var dict: Dictionary<String, Any> = ["CookTime": "",
+                                                 "Name": "",
+                                                 "Serves": 0,
+                                                 "Author": "",
+                                                 "Description": "",
+                                                 "Ingredient": "",
+                                                 "Procedure": "",
+                                                 "Category": ""]
     var index = 0
     var hours = 0
     var mins = 0
@@ -20,6 +28,7 @@ class UploadRecipeViewController: UIViewController, UIPickerViewDelegate, UIPick
     var recipeDescription: String?
     var recipeIngredients: String?
     var recipeProcedure: String?
+    var recipeCategory: String?
     // -------------------------------
     
     // MARK: - Outlets
@@ -28,6 +37,8 @@ class UploadRecipeViewController: UIViewController, UIPickerViewDelegate, UIPick
             setUserProfileImageView(isSettingAttributes: true)
             setRecipeTitleLabel(isSettingAttributes: true)
             setRecipeTitleTextField(isSettingAttributes: true)
+            setRecipeCategoryLabel(isSettingAttributes: true)
+            setRecipeCategoryTextField(isSettingAttributes: true)
             setRecipeDescriptionLabel(isSettingAttributes: true)
             setRecipeDescriptionTextView(isSettingAttributes: true)
             
@@ -50,6 +61,8 @@ class UploadRecipeViewController: UIViewController, UIPickerViewDelegate, UIPick
     var userProfileImageView = UIImageView()
     var recipeTitleLabel = UILabel()
     var recipeTitleTextField = UITextField()
+    var recipeCategoryLabel = UILabel()
+    var recipeCategoryTextField = UITextField()
     var recipeDescriptionLabel = UILabel()
     var recipeDescriptionTextView = UITextView()
     
@@ -85,6 +98,8 @@ class UploadRecipeViewController: UIViewController, UIPickerViewDelegate, UIPick
         setUserProfileImageView(isSettingAttributes: false)
         setRecipeTitleLabel(isSettingAttributes: false)
         setRecipeTitleTextField(isSettingAttributes: false)
+        setRecipeCategoryLabel(isSettingAttributes: false)
+        setRecipeCategoryTextField(isSettingAttributes: false)
         setRecipeDescriptionLabel(isSettingAttributes: false)
         setRecipeDescriptionTextView(isSettingAttributes: false)
         
@@ -138,9 +153,32 @@ class UploadRecipeViewController: UIViewController, UIPickerViewDelegate, UIPick
         }
     }
     
+    func setRecipeCategoryLabel(isSettingAttributes: Bool) {
+        if isSettingAttributes {
+            recipeCategoryLabel.text = "Describe your recipe category"
+            recipeCategoryLabel.textAlignment = .left
+            recipeCategoryLabel.textColor = .black
+            recipeCategoryLabel.font = UIFont.systemFont(ofSize: 30)
+        } else {
+            recipeCategoryLabel.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width, height: 40)
+            currentHeightScrollable += recipeCategoryLabel.frame.height
+            scrollView.addSubview(recipeCategoryLabel)
+        }
+    }
+    
+    func setRecipeCategoryTextField(isSettingAttributes: Bool) {
+        if isSettingAttributes {
+            recipeCategoryTextField.borderStyle = .roundedRect
+        } else {
+            recipeCategoryTextField.frame = CGRect(x: 10, y: currentHeightScrollable, width: view.frame.width - 20, height: 40)
+            currentHeightScrollable += recipeCategoryTextField.frame.height + 30
+            scrollView.addSubview(recipeCategoryTextField)
+        }
+    }
+    
     func setRecipeDescriptionLabel(isSettingAttributes: Bool) {
         if isSettingAttributes {
-            recipeDescriptionLabel.text = "Event Description"
+            recipeDescriptionLabel.text = "Recipe Description"
             recipeDescriptionLabel.textAlignment = .left
             recipeDescriptionLabel.textColor = .black
             recipeDescriptionLabel.font = UIFont.systemFont(ofSize: 30)
@@ -347,7 +385,7 @@ class UploadRecipeViewController: UIViewController, UIPickerViewDelegate, UIPick
 
     
     @objc func uploadCompleteButtonTapped() {
-        if (recipeTitleTextField.text == "" || recipeDescriptionTextView.text == "" || ingredientTextView.text == "" || procedureTextView.text == "" || cookingTimeTextField.text == "" || servingNumberTextField.text == "") {
+        if (recipeTitleTextField.text == "" || recipeDescriptionTextView.text == "" || ingredientTextView.text == "" || procedureTextView.text == "" || cookingTimeTextField.text == "" || servingNumberTextField.text == "" || recipeCategoryTextField.text == "") {
             let alt = UIAlertController(title: "", message: "Fill in all the blank before uploading", preferredStyle: .alert)
             alt.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
                 (_)in
@@ -358,9 +396,33 @@ class UploadRecipeViewController: UIViewController, UIPickerViewDelegate, UIPick
             recipeDescription = recipeDescriptionTextView.text
             recipeIngredients = ingredientTextView.text
             recipeProcedure = procedureTextView.text
-            print(recipeTitle!)
-            print(recipeDescription!)
-            let alt = UIAlertController(title: "", message: "Upload Complete", preferredStyle: .alert)
+            recipeCategory = recipeCategoryTextField.text
+            
+            var cookTime = ""
+            if (hours == 0) {
+                cookTime = String(mins) + " mins"
+            } else if (mins == 0) {
+                cookTime = String(hours) + " hours"
+            } else {
+                cookTime = String(hours) + " hours, " + String(mins) + " mins"
+            }
+            
+            dict["CookTime"] = cookTime
+            dict["Name"] = recipeTitle
+            dict["Serves"] = servingNum
+            dict["Author"] = currentUser
+            dict["Description"] = recipeDescription
+            dict["Ingredient"] = recipeIngredients
+            dict["Procedure"] = recipeProcedure
+            dict["Category"] = recipeCategory
+            dict["Index"] = recipeCounter
+            
+            writeToFirebase(toCollection: .recipe, toDocument: "Recipe" + String(recipeCounter!), withDictionary: dict)
+            Events[recipeCounter!] = dict
+            recipeCounter! += 1
+            
+            
+            let alt = UIAlertController(title: "", message: "Upload Successful", preferredStyle: .alert)
             alt.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
                 (_)in
                 self.performSegue(withIdentifier: "RecipeUploadCompleteSegue", sender: self)

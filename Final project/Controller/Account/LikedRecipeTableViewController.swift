@@ -9,6 +9,18 @@
 import UIKit
 
 class LikedRecipeTableViewController: UITableViewController {
+    
+    var recipeAtRow: [Int] = [recipeCounter!]
+    
+    var recipeName: String?
+    var recipeAuthor: String?
+    var recipeCategory: String?
+    var recipeCookTime: String?
+    var recipeServingNum: Int?
+    var recipeDescription: String?
+    var recipeIndex: Int?
+    var recipeIngredient: String?
+    var recipeProcedure: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +41,27 @@ class LikedRecipeTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        let index: Int = userToIndex[currentUser!]!
+        if let recipes = Users[index]!["LikedRecipe"] as? [Int] {
+            return recipes.count
+        }
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LikedRecipeTableViewCell", for: indexPath)
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LikedRecipeTableViewCell", for: indexPath) as? LikedRecipeTableViewCell
+        let userIndex: Int = userToIndex[currentUser!]!
+        if let recipes = Users[userIndex]!["LikedRecipe"] as? [Int] {
+            let position = recipes.count - indexPath.row - 1
+            cell?.recipeImageView.image = UIImage(named: "duck-breast")
+            let recipeIndex = recipes[position]
+            recipeAtRow[indexPath.row] = recipeIndex
+            print(Recipes[recipeIndex]!)
+            print(Recipes[recipeIndex]!["Name"])
+            cell?.recipeTitleLabel.text = Recipes[recipeIndex]!["Name"] as! String
+            cell?.recipeAuthor.text = Recipes[recipeIndex]!["Author"] as! String
+        }
+        return cell!
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -42,17 +69,31 @@ class LikedRecipeTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ShowRecipeDetailFromLiked", sender: self)
-    }
+        let position = recipeAtRow[indexPath.row]
+        if let recipe = Recipes[position] {
+            recipeName = (recipe["Name"] as? String)!
+            recipeCookTime = (recipe["CookTime"] as? String)!
+            recipeServingNum = (recipe["Serves"] as? Int)!
+            recipeDescription = (recipe["Description"] as? String)!
+            recipeIndex = (recipe["Index"] as? Int)!
+            recipeIngredient = (recipe["Ingredient"] as? String)!
+            recipeProcedure = (recipe["Procedure"] as? String)!
+            recipeAuthor = (recipe["Author"] as? String)!
+            recipeCategory = (recipe["Category"] as? String)!
+            
+            performSegue(withIdentifier: "ShowRecipeDetailFromLiked", sender: self)
+        }
+        
+}
 
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
     /*
     // Override to support editing the table view.
@@ -81,14 +122,18 @@ class LikedRecipeTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let dest = segue.destination as? LikedRecipeDetailViewController {
+            dest.recipeName = recipeName!
+            dest.recipeCookTime = recipeCookTime!
+            dest.recipeCategory = recipeCategory!
+            dest.recipeAuthor = recipeAuthor
+            dest.recipeProcedure = recipeProcedure
+            dest.recipeServingNum = recipeServingNum
+            dest.recipeDescription = recipeDescription
+            dest.recipeIndex = recipeIndex
+            dest.recipeIngredient = recipeIngredient
+        }
     }
-    */
 
 }

@@ -25,9 +25,17 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
         }
     }
     
-    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var userNameTextField: UITextField! {
+        didSet {
+            userNameTextField.autocorrectionType = .no
+        }
+    }
     
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField! {
+        didSet {
+            passwordTextField.autocorrectionType = .no
+        }
+    }
     
     @IBOutlet weak var signinButton: UIButton! {
         didSet {
@@ -57,7 +65,8 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
         super.viewDidLoad()
         userNameTextField.delegate = self
         passwordTextField.delegate = self
-        insertVideo()
+        readFromFirebase(fromCollection: .count, fromDocument: "TotalCount")
+//        insertVideo()
         // Do any additional setup after loading the view.
     }
     
@@ -69,13 +78,16 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
     // MARK: - Functions
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
-        if let userDict = Users[userNameTextField.text!] as? Dictionary<String, Any> {
-            if let password = userDict["Password"] as? String {
-                if password == passwordTextField.text {
-                    userIsLoggedIn = true
-                    currentUser = userNameTextField.text
-                    performSegue(withIdentifier: "SignInSegue", sender: self)
-                    return
+        // Pull user data from firebase
+        if let userIndex = userToIndex[userNameTextField.text!] {
+            if let userDict = Users[userIndex] as? Dictionary<String, Any> {
+                if let password = userDict["Password"] as? String {
+                    if password == passwordTextField.text {
+                        userIsLoggedIn = true
+                        currentUser = userNameTextField.text
+                        performSegue(withIdentifier: "SignInSegue", sender: self)
+                        return
+                    }
                 }
             }
         }
@@ -87,6 +99,11 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
     }
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {
+        if (userToIndex.count == 0) {
+            for i in 0..<userCounter! {
+                readFromFirebase(fromCollection: .user, fromDocument: "User" + String(i))
+            }
+        }
     }
     
     @IBAction func continueAsGuestButtonTapped(_ sender: UIButton) {
@@ -109,6 +126,15 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
         self.backgroundColor = UIColor.black
         self.contentURL = url
         self.restartForeground = true
+    }
+    
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if (userToIndex.count == 0) {
+            for i in 0..<userCounter! {
+                readFromFirebase(fromCollection: .user, fromDocument: "User" + String(i))
+            }
+        }
     }
     
     

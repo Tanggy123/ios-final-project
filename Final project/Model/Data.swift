@@ -10,10 +10,20 @@ import Foundation
 import Firebase
 
 /* Structure to store user info and associated event info.*/
+var themeColor: UIColor = UIColor.flatMintColorDark()
 // MARK: - User data
 var currentUser: String?
+var userCounter: Int? {
+    didSet {
+        let dict = ["EventCount": eventCounter,
+                    "RecipeCount": recipeCounter,
+                    "UserCount": userCounter]
+        writeToFirebase(toCollection: .count, toDocument: "TotalCount", withDictionary: dict)
+    }
+}
+var userToIndex: Dictionary<String, Int> = [:]
 var userIsLoggedIn = false
-var Users: [String: Dictionary<String, Any>] = ["xuqianzhi": ["Name": "xuqianzhi", "Password": "xuqianzhi1998"]]
+var Users: [Int: Dictionary<String, Any>] = [:]
 
 
 
@@ -21,13 +31,27 @@ var Users: [String: Dictionary<String, Any>] = ["xuqianzhi": ["Name": "xuqianzhi
 // MARK: - Event data
 var Events: [Int: Dictionary<String, Any>] = [:]
 var tappedCellNum = -1
-var eventCounter = Events.count
+var eventCounter: Int? {
+    didSet {
+        let dict = ["EventCount": eventCounter,
+                    "RecipeCount": recipeCounter,
+                    "UserCount": userCounter]
+        writeToFirebase(toCollection: .count, toDocument: "TotalCount", withDictionary: dict)
+    }
+}
 
 
 
 // MARK: - Recipe Data
 var Recipes: [Int: Dictionary<String, Any>] = [:]
-var recipeCounter = Recipes.count
+var recipeCounter: Int? {
+    didSet {
+        let dict = ["EventCount": eventCounter,
+                    "RecipeCount": recipeCounter,
+                    "UserCount": userCounter]
+        writeToFirebase(toCollection: .count, toDocument: "TotalCount", withDictionary: dict)
+    }
+}
 
 
 // MARK: - Functions
@@ -35,7 +59,8 @@ var recipeCounter = Recipes.count
 public enum FirebaseCollection: String {
     case user = "Users"
     case event = "Events"
-    case recipe = "Recipe"
+    case recipe = "Recipes"
+    case count = "Count"
 }
 
 
@@ -61,14 +86,30 @@ public func readFromFirebase(fromCollection collec: FirebaseCollection, fromDocu
                     let index = Int(String(doc.last!))
                     Events[index!] = dict
                 case .user:
-                    Users[doc] = dict
+                    let index = Int(String(doc.last!))
+                    Users[index!] = dict
+                    let user = dict["UserName"] as! String
+                    userToIndex[user] = index
                 case .recipe:
                     let index = Int(String(doc.last!))
                     Recipes[index!] = dict
+                case .count:
+                    eventCounter = dict["EventCount"] as! Int
+                    print(eventCounter)
+                    recipeCounter = dict["RecipeCount"] as! Int
+                    print(recipeCounter)
+                    userCounter = dict["UserCount"] as! Int
+                    print(userCounter)
                 }
             }
         } else {
             print("Document does not exist")
         }
     }
+}
+
+
+public func generateHeightWithStringLenghth(text: String) -> CGFloat{
+    print(text.count)
+    return CGFloat(70 * (text.count / 40 + 1))
 }

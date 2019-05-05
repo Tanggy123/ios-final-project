@@ -10,9 +10,21 @@ import UIKit
 
 class RegisterAccountViewController: UIViewController {
     
-    @IBOutlet weak var userNameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var userNameTextField: UITextField! {
+        didSet {
+            userNameTextField.autocorrectionType = .no
+        }
+    }
+    @IBOutlet weak var passwordTextField: UITextField! {
+        didSet {
+            passwordTextField.autocorrectionType = .no
+        }
+    }
+    @IBOutlet weak var confirmPasswordTextField: UITextField! {
+        didSet {
+            confirmPasswordTextField.autocorrectionType = .no
+        }
+    }
     @IBOutlet weak var registerButton: UIButton! {
         didSet {
             registerButton.backgroundColor = UIColor.flatMint()
@@ -20,13 +32,13 @@ class RegisterAccountViewController: UIViewController {
     }
     @IBOutlet weak var quitButton: UIButton! {
         didSet {
-            quitButton.backgroundColor = UIColor.flatMintColorDark()
+            quitButton.backgroundColor = UIColor.flatMint()
         }
     }
     
     @IBOutlet weak var uploadImageButton: UIButton! {
         didSet {
-            uploadImageButton.backgroundColor = UIColor.flatMint()
+            uploadImageButton.backgroundColor = UIColor.flatMintColorDark()
         }
     }
     
@@ -53,7 +65,7 @@ class RegisterAccountViewController: UIViewController {
             }))
             self.present(alt, animated: true, completion: nil)
             return
-        } else if Users.keys.contains(userNameTextField.text!) {
+        } else if userToIndex.keys.contains(userNameTextField.text!) {
             let alt = UIAlertController(title: "", message: "This user name has been used", preferredStyle: .alert)
             alt.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
                 (_)in
@@ -70,7 +82,7 @@ class RegisterAccountViewController: UIViewController {
             self.present(alt, animated: true, completion: nil)
             return
         } else if passwordTextField.text! != confirmPasswordTextField.text! {
-            let alt = UIAlertController(title: "", message: "This user name has been used", preferredStyle: .alert)
+            let alt = UIAlertController(title: "", message: "Passwords typed does not match", preferredStyle: .alert)
             alt.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
                 (_)in
                 alt.dismiss(animated: true, completion: nil)
@@ -78,7 +90,15 @@ class RegisterAccountViewController: UIViewController {
             self.present(alt, animated: true, completion: nil)
             return
         } else {
-            // TODO: Upload user to Firebase
+            let dict: Dictionary<String, Any> = ["UserName": userNameTextField.text,
+                                                 "Password" : passwordTextField.text,
+                                                 "LikedEvent" : "None",
+                                                 "LikedRecipe" : "None",
+                                                 "Index": userCounter]
+            Users[userCounter!] = dict
+            userToIndex[userNameTextField.text!] = userCounter
+            writeToFirebase(toCollection: .user, toDocument: "User" + String(userCounter!), withDictionary: dict)
+            userCounter! += 1
             let alt = UIAlertController(title: "", message: "Register successful!", preferredStyle: .alert)
             alt.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
                 (_)in

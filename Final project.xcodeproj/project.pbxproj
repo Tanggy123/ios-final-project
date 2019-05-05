@@ -25,13 +25,14 @@
 		BD649768225C0CAA00F6D83E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD649766225C0CAA00F6D83E /* Main.storyboard */; };
 		BD64976A225C0CAB00F6D83E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD649769225C0CAB00F6D83E /* Assets.xcassets */; };
 		BD64976D225C0CAB00F6D83E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD64976B225C0CAB00F6D83E /* LaunchScreen.storyboard */; };
-		BD7C20B6227B9CC4008EC187 /* NewRecipeDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C20B5227B9CC4008EC187 /* NewRecipeDetailTableViewCell.swift */; };
-		BD7C20B8227B9CDE008EC187 /* NewRecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C20B7227B9CDE008EC187 /* NewRecipeDetailViewController.swift */; };
+		BD7C20B6227B9CC4008EC187 /* NewRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C20B5227B9CC4008EC187 /* NewRecipeTableViewCell.swift */; };
+		BD7C20B8227B9CDE008EC187 /* NewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7C20B7227B9CDE008EC187 /* NewRecipeViewController.swift */; };
 		BD7F6A092279460D005B26E4 /* RecipeEndCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A082279460D005B26E4 /* RecipeEndCollectionViewCell.swift */; };
 		BD7F6A0B227962B2005B26E4 /* AllRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A0A227962B2005B26E4 /* AllRecipeViewController.swift */; };
 		BD7F6A0D22796AE3005B26E4 /* UserLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A0C22796AE3005B26E4 /* UserLogInViewController.swift */; };
 		BD7F6A0F22796D0E005B26E4 /* UploadEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A0E22796D0E005B26E4 /* UploadEventViewController.swift */; };
 		BD7F6A1122796D2C005B26E4 /* UploadRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F6A1022796D2C005B26E4 /* UploadRecipeViewController.swift */; };
+		BD9000E7227EA44800EB26C2 /* EditInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9000E6227EA44800EB26C2 /* EditInformationViewController.swift */; };
 		BDA0A5F6225F8EA10062D31A /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0A5F5225F8EA10062D31A /* RecipeDetailViewController.swift */; };
 		BDA0A5F8225F9A100062D31A /* MapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0A5F7225F9A100062D31A /* MapDetailViewController.swift */; };
 		BDC77B3C227B63C20030146A /* LikedEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC77B3B227B63C20030146A /* LikedEventTableViewController.swift */; };
@@ -66,13 +67,14 @@
 		BD649769225C0CAB00F6D83E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD64976C225C0CAB00F6D83E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD64976E225C0CAB00F6D83E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BD7C20B5227B9CC4008EC187 /* NewRecipeDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeDetailTableViewCell.swift; sourceTree = "<group>"; };
-		BD7C20B7227B9CDE008EC187 /* NewRecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeDetailViewController.swift; sourceTree = "<group>"; };
+		BD7C20B5227B9CC4008EC187 /* NewRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeTableViewCell.swift; sourceTree = "<group>"; };
+		BD7C20B7227B9CDE008EC187 /* NewRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeViewController.swift; sourceTree = "<group>"; };
 		BD7F6A082279460D005B26E4 /* RecipeEndCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEndCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD7F6A0A227962B2005B26E4 /* AllRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecipeViewController.swift; sourceTree = "<group>"; };
 		BD7F6A0C22796AE3005B26E4 /* UserLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserLogInViewController.swift; path = Controller/UserLogInViewController.swift; sourceTree = "<group>"; };
 		BD7F6A0E22796D0E005B26E4 /* UploadEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadEventViewController.swift; sourceTree = "<group>"; };
 		BD7F6A1022796D2C005B26E4 /* UploadRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRecipeViewController.swift; sourceTree = "<group>"; };
+		BD9000E6227EA44800EB26C2 /* EditInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInformationViewController.swift; sourceTree = "<group>"; };
 		BDA0A5F5225F8EA10062D31A /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		BDA0A5F7225F9A100062D31A /* MapDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailViewController.swift; sourceTree = "<group>"; };
 		BDC77B3B227B63C20030146A /* LikedEventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedEventTableViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				BD1C4215225C216800F3747D /* Model */,
 				BD649766225C0CAA00F6D83E /* Main.storyboard */,
 				BD7F6A0C22796AE3005B26E4 /* UserLogInViewController.swift */,
+				BD4A6ADA227C01DC005A757F /* RegisterAccountViewController.swift */,
 				1388D9692266B694008C8656 /* GoogleService-Info.plist */,
 				BD64976E225C0CAB00F6D83E /* Info.plist */,
 				BD649769225C0CAB00F6D83E /* Assets.xcassets */,
@@ -170,8 +173,8 @@
 		BD81BF0A2274DF9C00CC0F1E /* Recipe */ = {
 			isa = PBXGroup;
 			children = (
-				BD7C20B5227B9CC4008EC187 /* NewRecipeDetailTableViewCell.swift */,
-				BD7C20B7227B9CDE008EC187 /* NewRecipeDetailViewController.swift */,
+				BD7C20B5227B9CC4008EC187 /* NewRecipeTableViewCell.swift */,
+				BD7C20B7227B9CDE008EC187 /* NewRecipeViewController.swift */,
 				BD5A2B02226FC2AA00D88CBD /* RecipeViewController.swift */,
 				BD5A2B04226FC4F100D88CBD /* RecipeTableViewCell.swift */,
 				BD7F6A0A227962B2005B26E4 /* AllRecipeViewController.swift */,
@@ -207,7 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				BD1C421C225C21DD00F3747D /* AccountViewController.swift */,
-				BD4A6ADA227C01DC005A757F /* RegisterAccountViewController.swift */,
+				BD9000E6227EA44800EB26C2 /* EditInformationViewController.swift */,
 				BD7F6A0E22796D0E005B26E4 /* UploadEventViewController.swift */,
 				BD7F6A1022796D2C005B26E4 /* UploadRecipeViewController.swift */,
 				BDC77B3B227B63C20030146A /* LikedEventTableViewController.swift */,
@@ -353,6 +356,7 @@
 			files = (
 				1322F8C1226DE23D00FAA7FD /* Data.swift in Sources */,
 				BD08ED62226AE47B00D8AEAA /* MainTableViewController.swift in Sources */,
+				BD9000E7227EA44800EB26C2 /* EditInformationViewController.swift in Sources */,
 				BD7F6A0D22796AE3005B26E4 /* UserLogInViewController.swift in Sources */,
 				BD5A2B03226FC2AA00D88CBD /* RecipeViewController.swift in Sources */,
 				BDC77B42227B643C0030146A /* LikedRecipeTableViewCell.swift in Sources */,
@@ -373,8 +377,8 @@
 				BD4A6ADB227C01DC005A757F /* RegisterAccountViewController.swift in Sources */,
 				BD7F6A0F22796D0E005B26E4 /* UploadEventViewController.swift in Sources */,
 				BD1C421D225C21DD00F3747D /* AccountViewController.swift in Sources */,
-				BD7C20B8227B9CDE008EC187 /* NewRecipeDetailViewController.swift in Sources */,
-				BD7C20B6227B9CC4008EC187 /* NewRecipeDetailTableViewCell.swift in Sources */,
+				BD7C20B8227B9CDE008EC187 /* NewRecipeViewController.swift in Sources */,
+				BD7C20B6227B9CC4008EC187 /* NewRecipeTableViewCell.swift in Sources */,
 				BD5A2B07226FC51800D88CBD /* RecipeCollectionViewCell.swift in Sources */,
 				BDC77B46227B6CFD0030146A /* LikedRecipeDetailViewController.swift in Sources */,
 				BD649763225C0CAA00F6D83E /* AppDelegate.swift in Sources */,

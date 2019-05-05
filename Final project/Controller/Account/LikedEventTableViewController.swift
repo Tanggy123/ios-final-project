@@ -7,8 +7,20 @@
 //
 
 import UIKit
+import Firebase
 
 class LikedEventTableViewController: UITableViewController {
+    
+    var eventAtRow: [Int] = [eventCounter!]
+    
+    var eventIndex: Int?
+    var eventAddress: String?
+    var eventDescription: String?
+    var eventName: String?
+    var eventType: String?
+    var eventHost: String?
+    var eventLiked: Int?
+    var eventTime: Date?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +41,11 @@ class LikedEventTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        let index: Int = userToIndex[currentUser!]!
+        if let events = Users[index]!["LikedEvent"] as? [Int] {
+            return events.count
+        }
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -38,11 +54,42 @@ class LikedEventTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LikedEventTableViewCell", for: indexPath)
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LikedEventTableViewCell", for: indexPath) as? LikedEventTableViewCell
+        let userIndex: Int = userToIndex[currentUser!]!
+        if let events = Users[userIndex]!["LikedEvent"] as? [Int] {
+            let position = events.count - indexPath.row - 1
+            cell?.eventImageView.image = UIImage(named: "event")
+            let eventIndex = events[position]
+            eventAtRow[indexPath.row] = eventIndex
+            cell?.eventTitleLabel.text = Events[eventIndex]!["EventName"] as! String
+            let temp = Events[eventIndex]!["Time"] as! Timestamp
+            let eventDate = temp.dateValue()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+            dateFormatter.timeZone = NSTimeZone.local
+            cell?.eventTimeLabel.text = dateFormatter.string(from: eventDate)
+        }
+        return cell!
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let eventIndex = eventAtRow[indexPath.row]
+        if let event = Events[eventIndex] {
+            print(event)
+            eventAddress = event["Address"] as? String
+            eventDescription = event["Description"] as? String
+            eventName = event["EventName"] as? String
+            eventType = event["Type"] as? String
+            eventHost = event["Host"] as? String
+            eventLiked = event["Liked"] as? Int
+            self.eventIndex = eventIndex as? Int
+            if let stamp = event["Time"] as? Timestamp {
+                eventTime = stamp.dateValue()
+            }
+            print(eventName)
+            print(eventType)
+        }
         performSegue(withIdentifier: "ShowEvenDetailFromLiked", sender: self)
     }
 
@@ -81,14 +128,21 @@ class LikedEventTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let dest = segue.destination as? LikedEventDetailViewController {
+            dest.eventAddress = eventAddress
+            dest.eventName = eventName
+            dest.eventDescription = eventDescription
+            dest.eventType = eventType
+            dest.eventHost = eventHost
+            dest.eventLiked = eventLiked
+            dest.eventTime = eventTime
+            dest.eventIndex = eventIndex
+        }
     }
-    */
+ 
 
 }

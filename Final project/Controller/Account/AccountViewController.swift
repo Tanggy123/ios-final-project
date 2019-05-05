@@ -93,7 +93,7 @@ class AccountViewController: UIViewController {
             }
             logoutButton.contentHorizontalAlignment = .center
             logoutButton.backgroundColor = UIColor.lightGray
-            logoutButton.titleLabel?.font = UIFont.systemFont(ofSize: 24)
+            logoutButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         }
     }
     

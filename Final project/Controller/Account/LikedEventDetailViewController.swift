@@ -28,6 +28,15 @@ class LikedEventDetailViewController: UIViewController {
     }
     
     // MARK: - Variables
+    var eventIndex: Int?
+    var eventAddress: String?
+    var eventDescription: String?
+    var eventName: String?
+    var eventType: String?
+    var eventHost: String?
+    var eventLiked: Int?
+    var eventTime: Date?
+    
     var eventImageView = UIImageView()
     var eventTitleLabel = UILabel()
     var eventDateLabel = UILabel()
@@ -37,9 +46,6 @@ class LikedEventDetailViewController: UIViewController {
     
     var currentHeightScrollable: CGFloat = 0
     let spacer: CGFloat = 20
-    
-    var eventName = ""
-    
     // MARK: - Init
     
     override func viewDidLoad() {
@@ -71,7 +77,7 @@ class LikedEventDetailViewController: UIViewController {
     
     func setEventTitleLabel(isSettingAttributes: Bool) {
         if (isSettingAttributes) {
-            eventTitleLabel.text = eventName
+            eventTitleLabel.text = eventName!
             eventTitleLabel.textAlignment = .left
             eventTitleLabel.textColor = .black
             eventTitleLabel.numberOfLines = 0
@@ -87,7 +93,10 @@ class LikedEventDetailViewController: UIViewController {
     
     func setEventDateLabel(isSettingAttributes: Bool) {
         if (isSettingAttributes) {
-            eventDateLabel.text = "Event Date"
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+            dateFormatter.timeZone = NSTimeZone.local
+            eventDateLabel.text = dateFormatter.string(from: eventTime!)
             eventDateLabel.textAlignment = .left
             eventDateLabel.textColor = .lightGray
             eventDateLabel.font = UIFont.systemFont(ofSize: 15)
@@ -101,7 +110,10 @@ class LikedEventDetailViewController: UIViewController {
     
     func setEventTimeLabel(isSettingAttributes: Bool) {
         if (isSettingAttributes) {
-            eventTimeLabel.text = "Event time"
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "h:mm a"
+            dateFormatter.timeZone = NSTimeZone.local
+            eventTimeLabel.text = dateFormatter.string(from: eventTime!)
             eventTimeLabel.textAlignment = .left
             eventTimeLabel.textColor = .lightGray
             eventTimeLabel.font = UIFont.systemFont(ofSize: 15)
@@ -129,7 +141,7 @@ class LikedEventDetailViewController: UIViewController {
     func setEventTextView(isSettingAttributes: Bool) {
         if (isSettingAttributes) {
             eventTextView.textAlignment = .left
-            eventTextView.text = longString()
+            eventTextView.text = eventDescription!
             eventTextView.textColor = .black
             eventTextView.font = UIFont.systemFont(ofSize: 20)
             eventTextView.isEditable = false
@@ -137,7 +149,7 @@ class LikedEventDetailViewController: UIViewController {
             eventTextView.isUserInteractionEnabled = false
             eventTextView.backgroundColor = .white
         } else {
-            eventTextView.frame = CGRect(x: 0, y: currentHeightScrollable, width: view.frame.width, height: 1000)
+            eventTextView.frame = CGRect(x: 0, y: currentHeightScrollable, width: view.frame.width, height: generateHeightWithStringLenghth(text: eventDescription!))
             currentHeightScrollable += eventTextView.frame.height
             scrollView.addSubview(eventTextView)
         }
@@ -147,7 +159,7 @@ class LikedEventDetailViewController: UIViewController {
     
     
     @objc func likeButtonTapped() {
-        let alt = UIAlertController(title: "", message: "Event added to your Like List!", preferredStyle: .alert)
+        let alt = UIAlertController(title: "", message: "Event added to your like list!", preferredStyle: .alert)
         alt.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
             (_)in
         }))

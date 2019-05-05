@@ -45,6 +45,17 @@ class LikedRecipeDetailViewController: UIViewController {
     }
     
     // MARK: - Variables
+    var recipeName: String?
+    var recipeAuthor: String?
+    var recipeCategory: String?
+    var recipeCookTime: String?
+    var recipeServingNum: Int?
+    var recipeDescription: String?
+    var recipeIndex: Int?
+    var recipeIngredient: String?
+    var recipeProcedure: String?
+    
+    
     var foodImageView = UIImageView()
     var foodTypeLabel = UILabel()
     var foodTitle = UILabel()
@@ -99,7 +110,7 @@ class LikedRecipeDetailViewController: UIViewController {
     
     func setFoodTypeLabel(isSettingAttributes: Bool) {
         if isSettingAttributes {
-            foodTypeLabel.text = "    Breakfast and Brunch"
+            foodTypeLabel.text = recipeCategory!
             foodTypeLabel.textAlignment = .left
             foodTypeLabel.backgroundColor = UIColor.flatMintColorDark()
             foodTypeLabel.textColor = .black
@@ -113,7 +124,7 @@ class LikedRecipeDetailViewController: UIViewController {
     
     func setFoodTitleLabel(isSettingAttributes: Bool) {
         if isSettingAttributes {
-            foodTitle.text = "   Food Title"
+            foodTitle.text = recipeName!
             foodTitle.textAlignment = .left
             foodTitle.backgroundColor = UIColor.flatMintColorDark()
             foodTitle.textColor = .black
@@ -129,7 +140,7 @@ class LikedRecipeDetailViewController: UIViewController {
     
     func setFoodTimeLabel(isSettingAttributes: Bool) {
         if isSettingAttributes {
-            foodTimeLabel.text = "    30 mins, serves 2"
+            foodTimeLabel.text = recipeCookTime! + ", Serves " + String(recipeServingNum!)
             foodTimeLabel.textAlignment = .left
             foodTimeLabel.backgroundColor = UIColor.flatMintColorDark()
             foodTimeLabel.textColor = .black
@@ -155,12 +166,12 @@ class LikedRecipeDetailViewController: UIViewController {
             shortDescriptionTextView.textAlignment = .left
             shortDescriptionTextView.textColor = .black
             shortDescriptionTextView.font = UIFont.systemFont(ofSize: 20)
-            shortDescriptionTextView.text = generateLongText(str: "Short Description ")
+            shortDescriptionTextView.text = recipeDescription!
             shortDescriptionTextView.isEditable = false
             shortDescriptionTextView.isScrollEnabled = true
             shortDescriptionTextView.isUserInteractionEnabled = false
         } else {
-            shortDescriptionTextView.frame = CGRect(x: 0, y: currentHeightScrollable, width: view.frame.width, height: 200)
+            shortDescriptionTextView.frame = CGRect(x: 0, y: currentHeightScrollable, width: view.frame.width, height: generateHeightWithStringLenghth(text: recipeDescription!))
             currentHeightScrollable += shortDescriptionTextView.frame.height + 20
             scrollView.addSubview(shortDescriptionTextView)
         }
@@ -199,12 +210,12 @@ class LikedRecipeDetailViewController: UIViewController {
             ingredientDescriptionTextView.textAlignment = .left
             ingredientDescriptionTextView.textColor = .black
             ingredientDescriptionTextView.font = UIFont.systemFont(ofSize: 20)
-            ingredientDescriptionTextView.text = generateLongText(str: "Ingredient ")
+            ingredientDescriptionTextView.text = recipeIngredient!
             ingredientDescriptionTextView.isEditable = false
             ingredientDescriptionTextView.isScrollEnabled = true
             ingredientDescriptionTextView.isUserInteractionEnabled = false
         } else {
-            ingredientDescriptionTextView.frame = CGRect(x: 0, y: currentHeightScrollable, width: view.frame.width, height: 800)
+            ingredientDescriptionTextView.frame = CGRect(x: 0, y: currentHeightScrollable, width: view.frame.width, height: generateHeightWithStringLenghth(text: recipeIngredient!))
             currentHeightScrollable += ingredientDescriptionTextView.frame.height
             scrollView.addSubview(ingredientDescriptionTextView)
         }
@@ -230,12 +241,12 @@ class LikedRecipeDetailViewController: UIViewController {
             procedureDescriptionTextView.textAlignment = .left
             procedureDescriptionTextView.textColor = .black
             procedureDescriptionTextView.font = UIFont.systemFont(ofSize: 20)
-            procedureDescriptionTextView.text = generateLongText(str: "Procedure ")
+            procedureDescriptionTextView.text = recipeProcedure!
             procedureDescriptionTextView.isEditable = false
             procedureDescriptionTextView.isScrollEnabled = true
             procedureDescriptionTextView.isUserInteractionEnabled = false
         } else {
-            procedureDescriptionTextView.frame = CGRect(x: 0, y: currentHeightScrollable, width: view.frame.width, height: 1000)
+            procedureDescriptionTextView.frame = CGRect(x: 0, y: currentHeightScrollable, width: view.frame.width, height: generateHeightWithStringLenghth(text: recipeProcedure!))
             currentHeightScrollable += procedureDescriptionTextView.frame.height
             scrollView.addSubview(procedureDescriptionTextView)
         }

@@ -8,7 +8,18 @@
 
 import UIKit
 
-class NewRecipeDetailTableViewCell: UITableViewCell {
+class NewRecipeTableViewCell: UITableViewCell {
+    
+    // MARK: - Variables
+    var recipeName: String?
+    var recipeAuthor: String?
+    var recipeCategory: String?
+    var recipeCookTime: String?
+    var recipeServingNum: Int?
+    var recipeDescription: String?
+    var recipeIndex: Int?
+    var recipeIngredient: String?
+    var recipeProcedure: String?
     
     // MARK: - Outlets
     @IBOutlet weak var recipeImageView: UIImageView!
@@ -35,14 +46,14 @@ class NewRecipeDetailTableViewCell: UITableViewCell {
     }
     
     func setRecipeTitleLabel() {
-        recipeTitleLabel.text = "Recipe Title"
+//        recipeTitleLabel.text = recipeName!
         recipeTitleLabel.textAlignment = .left
         recipeTitleLabel.textColor = .black
         recipeTitleLabel.font = UIFont.systemFont(ofSize: 25)
     }
     
     func setRecipeAuthorLabel() {
-        recipeInfoLabel.text = "30 mins, serves 2"
+//        recipeInfoLabel.text = recipeCookTime!
         recipeInfoLabel.textAlignment = .left
         recipeInfoLabel.textColor = .black
         recipeInfoLabel.font = UIFont.systemFont(ofSize: 15)

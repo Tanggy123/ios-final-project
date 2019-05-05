@@ -342,14 +342,15 @@ class UploadEventViewController: UIViewController {
             dict["Host"] = currentUser
             dict["Liked"] = 1000
             dict["Time"] = selectedEventDate
+            dict["Index"] = eventCounter
             
             
             // TODO: Upload this event to firebase
-            writeToFirebase(toCollection: .event, toDocument: "Event" + String(eventCounter), withDictionary: dict)
-            Events[eventCounter] = dict
-            eventCounter += 1
+            writeToFirebase(toCollection: .event, toDocument: "Event" + String(eventCounter!), withDictionary: dict)
+            Events[eventCounter!] = dict
+            eventCounter! += 1
             
-            let alt = UIAlertController(title: "", message: "Upload Complete", preferredStyle: .alert)
+            let alt = UIAlertController(title: "", message: "Upload Successful!", preferredStyle: .alert)
             alt.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
                 (_)in
                 self.performSegue(withIdentifier: "EventUploadCompleteSegue", sender: self)
