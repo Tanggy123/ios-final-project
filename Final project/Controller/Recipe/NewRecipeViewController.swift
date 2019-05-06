@@ -73,7 +73,7 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let position = recipeCounter! - indexPath.row - 1
-        let position = currArr[indexPath.row]
+        let position = currArr[currArr.count - indexPath.row - 1]
         if let recipe = Recipes[position] {
             recipeName = (recipe["Name"] as? String)!
             recipeCookTime = (recipe["CookTime"] as? String)!

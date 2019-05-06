@@ -112,6 +112,12 @@ public func readFromFirebase(db: Firestore, fromCollection collec: FirebaseColle
 
 
 public func generateHeightWithStringLenghth(text: String) -> CGFloat{
-    print(text.count)
-    return CGFloat(100 * (text.count / 40 + 1))
+    var counter: Int = 0
+    for char in text {
+        if char == "\n" {
+            counter += 1
+        }
+    }
+    print("the counter is " + String(counter))
+    return CGFloat(30 * counter + 50 * (text.count / 40 + 1))
 }
