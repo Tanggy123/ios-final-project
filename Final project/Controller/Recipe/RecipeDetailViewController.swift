@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import Firebase
 
 class RecipeDetailViewController: UIViewController {
     
@@ -271,7 +272,8 @@ class RecipeDetailViewController: UIViewController {
                     var dict: Dictionary<String, Any> = Users[userIndex]!
                     dict["LikedRecipe"] = lst
                     
-                    writeToFirebase(toCollection: .user, toDocument: "User" + String(userIndex), withDictionary: dict)
+                    let db = Firestore.firestore()
+                    writeToFirebase(db: db, toCollection: .user, toDocument: "User" + String(userIndex), withDictionary: dict)
                 } else {
                     var lst = Users[userIndex]!["LikedRecipe"] as! [Int]
                     if !lst.contains(self.recipeIndex!) {
@@ -281,7 +283,8 @@ class RecipeDetailViewController: UIViewController {
                         var dict: Dictionary<String, Any> = Users[userIndex]!
                         dict["LikedRecipe"] = lst
                         
-                        writeToFirebase(toCollection: .user, toDocument: "User" + String(userIndex), withDictionary: dict)
+                        let db = Firestore.firestore()
+                        writeToFirebase(db: db, toCollection: .user, toDocument: "User" + String(userIndex), withDictionary: dict)
                     } else {
                         alt.message = "This recipe is already in your Like list"
                     }

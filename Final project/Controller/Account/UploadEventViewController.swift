@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class UploadEventViewController: UIViewController {
     
@@ -317,9 +318,10 @@ class UploadEventViewController: UIViewController {
     }
     
     @objc func endEdit() {
-        if (eventDateTextField.isEditing || eventTimeTextField.isEditing) {
-            view.endEditing(true)
-        }
+//        if (eventDateTextField.isEditing || eventTimeTextField.isEditing || eventAddressTextField.isEditing || eventTitleTextField.isEditing || eventTypeTextField.isEditing) {
+//            view.endEditing(true)
+//        }
+        view.endEditing(true)
     }
     
     @objc func uploadCompleteButtonTapped() {
@@ -346,7 +348,8 @@ class UploadEventViewController: UIViewController {
             
             
             // TODO: Upload this event to firebase
-            writeToFirebase(toCollection: .event, toDocument: "Event" + String(eventCounter!), withDictionary: dict)
+            let db = Firestore.firestore()
+            writeToFirebase(db: db, toCollection: .event, toDocument: "Event" + String(eventCounter!), withDictionary: dict)
             Events[eventCounter!] = dict
             eventCounter! += 1
             

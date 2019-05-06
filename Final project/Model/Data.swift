@@ -19,7 +19,8 @@ var userCounter: Int? {
         let dict = ["EventCount": eventCounter,
                     "RecipeCount": recipeCounter,
                     "UserCount": userCounter]
-        writeToFirebase(toCollection: .count, toDocument: "TotalCount", withDictionary: dict)
+        let db = Firestore.firestore()
+        writeToFirebase(db: db, toCollection: .count, toDocument: "TotalCount", withDictionary: dict)
     }
 }
 var userToIndex: Dictionary<String, Int> = [:]
@@ -38,7 +39,8 @@ var eventCounter: Int? {
         let dict = ["EventCount": eventCounter,
                     "RecipeCount": recipeCounter,
                     "UserCount": userCounter]
-        writeToFirebase(toCollection: .count, toDocument: "TotalCount", withDictionary: dict)
+        let db = Firestore.firestore()
+        writeToFirebase(db: db, toCollection: .count, toDocument: "TotalCount", withDictionary: dict)
     }
 }
 
@@ -51,7 +53,8 @@ var recipeCounter: Int? {
         let dict = ["EventCount": eventCounter,
                     "RecipeCount": recipeCounter,
                     "UserCount": userCounter]
-        writeToFirebase(toCollection: .count, toDocument: "TotalCount", withDictionary: dict)
+        let db = Firestore.firestore()
+        writeToFirebase(db: db, toCollection: .count, toDocument: "TotalCount", withDictionary: dict)
     }
 }
 
@@ -66,8 +69,8 @@ public enum FirebaseCollection: String {
 }
 
 
-public func writeToFirebase(toCollection collec: FirebaseCollection, toDocument doc: String, withDictionary dict: Dictionary<String, Any>) {
-    let db = Firestore.firestore()
+public func writeToFirebase(db: Firestore, toCollection collec: FirebaseCollection, toDocument doc: String, withDictionary dict: Dictionary<String, Any>) {
+//    let db = Firestore.firestore()
     db.collection(collec.rawValue).document(doc).setData(dict) { err in
         if let err = err {
             print("Error writing document: \(err)")
@@ -77,8 +80,8 @@ public func writeToFirebase(toCollection collec: FirebaseCollection, toDocument 
     }
 }
 
-public func readFromFirebase(fromCollection collec: FirebaseCollection, fromDocument doc: String) {
-    let db = Firestore.firestore()
+public func readFromFirebase(db: Firestore, fromCollection collec: FirebaseCollection, fromDocument doc: String) {
+//    let db = Firestore.firestore()
     let docRef = db.collection(collec.rawValue).document(doc)
     docRef.getDocument { (document, error) in
         if let document = document, document.exists {
@@ -110,5 +113,5 @@ public func readFromFirebase(fromCollection collec: FirebaseCollection, fromDocu
 
 public func generateHeightWithStringLenghth(text: String) -> CGFloat{
     print(text.count)
-    return CGFloat(70 * (text.count / 40 + 1))
+    return CGFloat(100 * (text.count / 40 + 1))
 }

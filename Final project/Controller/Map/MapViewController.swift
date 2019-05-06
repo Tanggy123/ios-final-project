@@ -22,6 +22,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UISearchBa
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
             searchBar.barTintColor = UIColor.flatMintColorDark()
+            searchBar.showsCancelButton = true
         }
         
     }

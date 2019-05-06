@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class UploadRecipeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -417,8 +418,9 @@ class UploadRecipeViewController: UIViewController, UIPickerViewDelegate, UIPick
             dict["Category"] = recipeCategory
             dict["Index"] = recipeCounter
             
-            writeToFirebase(toCollection: .recipe, toDocument: "Recipe" + String(recipeCounter!), withDictionary: dict)
-            Events[recipeCounter!] = dict
+            let db = Firestore.firestore()
+            writeToFirebase(db: db, toCollection: .recipe, toDocument: "Recipe" + String(recipeCounter!), withDictionary: dict)
+            Recipes[recipeCounter!] = dict
             recipeCounter! += 1
             
             
@@ -432,9 +434,10 @@ class UploadRecipeViewController: UIViewController, UIPickerViewDelegate, UIPick
     }
     
     @objc func endEdit() {
-        if (cookingTimeTextField.isEditing || servingNumberTextField.isEditing) {
-            view.endEditing(true)
-        }
+//        if (cookingTimeTextField.isEditing || servingNumberTextField.isEditing || recipeTitleTextField.isEditing || recipeCategoryTextField.isEditing) {
+//            view.endEditing(true)
+//        }
+        view.endEditing(true)
     }
     
 

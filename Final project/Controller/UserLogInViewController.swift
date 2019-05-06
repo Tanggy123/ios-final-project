@@ -8,6 +8,7 @@
 
 import UIKit
 import VideoSplashKit
+import Firebase
 
 class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
     
@@ -68,7 +69,8 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
         view.addGestureRecognizer(endEditTapGestureRecognizer)
         userNameTextField.delegate = self
         passwordTextField.delegate = self
-        readFromFirebase(fromCollection: .count, fromDocument: "TotalCount")
+        let db = Firestore.firestore()
+        readFromFirebase(db: db, fromCollection: .count, fromDocument: "TotalCount")
         insertVideo()
         // Do any additional setup after loading the view.
     }
@@ -86,8 +88,9 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
             return
         }
         if (userToIndex.count == 0) {
+            let db = Firestore.firestore()
             for i in 0..<userCounter! {
-                readFromFirebase(fromCollection: .user, fromDocument: "User" + String(i))
+                readFromFirebase(db: db, fromCollection: .user, fromDocument: "User" + String(i))
             }
         }
         if Users.count == 0 {
@@ -114,8 +117,9 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {
         if (userToIndex.count == 0) {
+            let db = Firestore.firestore()
             for i in 0..<userCounter! {
-                readFromFirebase(fromCollection: .user, fromDocument: "User" + String(i))
+                readFromFirebase(db: db, fromCollection: .user, fromDocument: "User" + String(i))
             }
         }
     }
@@ -149,8 +153,10 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if userCounter != nil {
             if (userToIndex.count == 0) {
+                let db = Firestore.firestore()
                 for i in 0..<userCounter! {
-                    readFromFirebase(fromCollection: .user, fromDocument: "User" + String(i))
+                    let db = Firestore.firestore()
+                    readFromFirebase(db: db, fromCollection: .user, fromDocument: "User" + String(i))
                 }
             }
         }

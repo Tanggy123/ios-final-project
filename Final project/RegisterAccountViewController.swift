@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterAccountViewController: UIViewController {
     
@@ -99,7 +100,8 @@ class RegisterAccountViewController: UIViewController {
                                                  "Index": userCounter]
             Users[userCounter!] = dict
             userToIndex[userNameTextField.text!] = userCounter
-            writeToFirebase(toCollection: .user, toDocument: "User" + String(userCounter!), withDictionary: dict)
+            let db = Firestore.firestore()
+            writeToFirebase(db: db, toCollection: .user, toDocument: "User" + String(userCounter!), withDictionary: dict)
             userCounter! += 1
             let alt = UIAlertController(title: "", message: "Register successful!", preferredStyle: .alert)
             alt.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {

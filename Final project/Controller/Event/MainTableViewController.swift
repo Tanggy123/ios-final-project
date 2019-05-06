@@ -54,7 +54,7 @@ class MainTableViewController: UITableViewController {
         super.viewDidLoad()
         let db = Firestore.firestore()
         for index in 0...eventCounter! - 1 {
-            readFromFirebase(fromCollection: .event, fromDocument: "Event" + String(index))
+            readFromFirebase(db: db, fromCollection: .event, fromDocument: "Event" + String(index))
         }
         setup()
     }

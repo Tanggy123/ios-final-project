@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class EventDetailViewController: UIViewController {
     
@@ -187,7 +188,8 @@ class EventDetailViewController: UIViewController {
                     var dict: Dictionary<String, Any> = Users[userIndex]!
                     dict["LikedEvent"] = lst
                     
-                    writeToFirebase(toCollection: .user, toDocument: "User" + String(userIndex), withDictionary: dict)
+                    let db = Firestore.firestore()
+                    writeToFirebase(db: db, toCollection: .user, toDocument: "User" + String(userIndex), withDictionary: dict)
                 } else {
                     var lst = Users[userIndex]!["LikedEvent"] as! [Int]
                     if !lst.contains(self.eventIndex!) {
@@ -197,7 +199,8 @@ class EventDetailViewController: UIViewController {
                         var dict: Dictionary<String, Any> = Users[userIndex]!
                         dict["LikedEvent"] = lst
                         
-                        writeToFirebase(toCollection: .user, toDocument: "User" + String(userIndex), withDictionary: dict)
+                        let db = Firestore.firestore()
+                        writeToFirebase(db: db, toCollection: .user, toDocument: "User" + String(userIndex), withDictionary: dict)
                     } else {
                         alt.message = "This event is already in your Like list"
                     }

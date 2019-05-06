@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class NewRecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
@@ -45,8 +46,9 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let db = Firestore.firestore()
         for index in 0..<recipeCounter! {
-            readFromFirebase(fromCollection: .recipe, fromDocument: "Recipe" + String(index))
+            readFromFirebase(db: db, fromCollection: .recipe, fromDocument: "Recipe" + String(index))
         }
         setUp()
         // Do any additional setup after loading the view.
@@ -61,7 +63,7 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewRecipeDetailTableViewCell") as? NewRecipeTableViewCell
 //        let position = recipeCounter! - indexPath.row - 1
-        let position = currArr[indexPath.row]
+        let position = currArr[currArr.count - indexPath.row - 1]
         if let recipe = Recipes[position] {
             cell?.recipeTitleLabel.text = (recipe["Name"] as? String)!
             cell?.recipeInfoLabel.text = (recipe["CookTime"] as? String)! + ", Serves " + String((recipe["Serves"] as? Int)!)

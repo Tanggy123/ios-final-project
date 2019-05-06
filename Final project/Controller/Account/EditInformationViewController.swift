@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class EditInformationViewController: UIViewController {
     
@@ -32,6 +33,8 @@ class EditInformationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let endEditTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEdit))
+        view.addGestureRecognizer(endEditTapGestureRecognizer)
         view.backgroundColor = themeColor
         oldPassword = Users[index]!["Password"] as? String
         likedRecipe = Users[index]!["LikedRecipe"]
@@ -40,6 +43,9 @@ class EditInformationViewController: UIViewController {
     }
     
     // MARK: - Function
+    
+    
+    
     @IBAction func updateProfileButtonTapped(_ sender: UIButton) {
         if (userNameTextField.text == "" || passwordTextField.text == "") {
             let alt = UIAlertController(title: "", message: "You cannot have empty user name or password", preferredStyle: .alert)
@@ -59,7 +65,8 @@ class EditInformationViewController: UIViewController {
                             "LikedRecipe": self.likedRecipe,
                             "LikedEvent": self.likedEvent]
                 Users[self.index] = dict
-                writeToFirebase(toCollection: .user, toDocument: "User" + String(self.index), withDictionary: dict)
+                let db = Firestore.firestore()
+                writeToFirebase(db: db, toCollection: .user, toDocument: "User" + String(self.index), withDictionary: dict)
                 self.performSegue(withIdentifier: "EditSuccessfulSegue", sender: self)
             }))
             alt.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {
@@ -67,6 +74,12 @@ class EditInformationViewController: UIViewController {
                 alt.dismiss(animated: true, completion: nil)
             }))
             self.present(alt, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func endEdit() {
+        if (userNameTextField.isEditing || passwordTextField.isEditing) {
+            view.endEditing(true)
         }
     }
     
