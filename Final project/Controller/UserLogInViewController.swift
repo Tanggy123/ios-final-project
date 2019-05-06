@@ -64,10 +64,12 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let endEditTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEdit))
+        view.addGestureRecognizer(endEditTapGestureRecognizer)
         userNameTextField.delegate = self
         passwordTextField.delegate = self
         readFromFirebase(fromCollection: .count, fromDocument: "TotalCount")
-//        insertVideo()
+        insertVideo()
         // Do any additional setup after loading the view.
     }
     
@@ -80,6 +82,17 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         // Pull user data from firebase
+        if eventCounter == nil || recipeCounter == nil || userCounter == nil {
+            return
+        }
+        if (userToIndex.count == 0) {
+            for i in 0..<userCounter! {
+                readFromFirebase(fromCollection: .user, fromDocument: "User" + String(i))
+            }
+        }
+        if Users.count == 0 {
+            return
+        }
         if let userIndex = userToIndex[userNameTextField.text!] {
             if let userDict = Users[userIndex] as? Dictionary<String, Any> {
                 if let password = userDict["Password"] as? String {
@@ -108,6 +121,9 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
     }
     
     @IBAction func continueAsGuestButtonTapped(_ sender: UIButton) {
+        if eventCounter == nil || recipeCounter == nil || userCounter == nil {
+            return
+        }
         userIsLoggedIn = false
         performSegue(withIdentifier: "SignInSegue", sender: self)
     }
@@ -131,10 +147,18 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
     
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if (userToIndex.count == 0) {
-            for i in 0..<userCounter! {
-                readFromFirebase(fromCollection: .user, fromDocument: "User" + String(i))
+        if userCounter != nil {
+            if (userToIndex.count == 0) {
+                for i in 0..<userCounter! {
+                    readFromFirebase(fromCollection: .user, fromDocument: "User" + String(i))
+                }
             }
+        }
+    }
+    
+    @objc func endEdit() {
+        if (userNameTextField.isEditing || passwordTextField.isEditing) {
+            view.endEditing(true)
         }
     }
     

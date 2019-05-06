@@ -105,7 +105,7 @@ class MainTableViewController: UITableViewController {
             dest.eventType = eventType!
             dest.eventHost = eventHost!
             dest.eventLiked = eventLiked!
-            dest.eventTime = eventTime!
+            dest.eventTime = eventTime
             dest.eventIndex = eventIndex!
         }
         

@@ -51,6 +51,8 @@ class RegisterAccountViewController: UIViewController {
     
 
     override func viewDidLoad() {
+        let endEditTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEdit))
+        view.addGestureRecognizer(endEditTapGestureRecognizer)
         super.viewDidLoad()
         view.backgroundColor = UIColor.flatMintColorDark()
         // Do any additional setup after loading the view.
@@ -119,6 +121,12 @@ class RegisterAccountViewController: UIViewController {
             alt.dismiss(animated: true, completion: nil)
         }))
         self.present(alt, animated: true, completion: nil)
+    }
+    
+    @objc func endEdit() {
+        if (userNameTextField.isEditing || passwordTextField.isEditing || confirmPasswordTextField.isEditing) {
+            view.endEditing(true)
+        }
     }
     
     

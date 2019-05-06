@@ -11,7 +11,7 @@ import Firebase
 
 class LikedEventTableViewController: UITableViewController {
     
-    var eventAtRow: [Int] = [eventCounter!]
+    var eventAtRow: [Int] = Array(repeating: 0, count: eventCounter!)
     
     var eventIndex: Int?
     var eventAddress: String?
@@ -60,6 +60,8 @@ class LikedEventTableViewController: UITableViewController {
             let position = events.count - indexPath.row - 1
             cell?.eventImageView.image = UIImage(named: "event")
             let eventIndex = events[position]
+            print(indexPath.row)
+            print(eventAtRow)
             eventAtRow[indexPath.row] = eventIndex
             cell?.eventTitleLabel.text = Events[eventIndex]!["EventName"] as! String
             let temp = Events[eventIndex]!["Time"] as! Timestamp
@@ -80,15 +82,13 @@ class LikedEventTableViewController: UITableViewController {
             eventAddress = event["Address"] as? String
             eventDescription = event["Description"] as? String
             eventName = event["EventName"] as? String
-            eventType = event["Type"] as? String
+            eventType = event["EventType"] as? String
             eventHost = event["Host"] as? String
             eventLiked = event["Liked"] as? Int
             self.eventIndex = eventIndex as? Int
             if let stamp = event["Time"] as? Timestamp {
                 eventTime = stamp.dateValue()
             }
-            print(eventName)
-            print(eventType)
         }
         performSegue(withIdentifier: "ShowEvenDetailFromLiked", sender: self)
     }

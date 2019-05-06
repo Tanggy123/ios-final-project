@@ -113,5 +113,5 @@ public func readFromFirebase(fromCollection collec: FirebaseCollection, fromDocu
 
 public func generateHeightWithStringLenghth(text: String) -> CGFloat{
     print(text.count)
-    return CGFloat(70 * (text.count / 40 + 1))
+    return CGFloat(50 * (text.count / 40 + 1))
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class LikedRecipeTableViewController: UITableViewController {
     
-    var recipeAtRow: [Int] = [recipeCounter!]
+    var recipeAtRow: [Int] = Array(repeating: 0, count: recipeCounter!)
     
     var recipeName: String?
     var recipeAuthor: String?

@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var refreshButton: UIButton! {
         didSet {
@@ -19,15 +19,22 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UISearchBa
     }
     
     
-    @IBOutlet weak var searchBar: UISearchBar! { didSet { searchBar.barTintColor = UIColor.flatMintColorDark() } }
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.barTintColor = UIColor.flatMintColorDark()
+        }
+        
+    }
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
             
         }
     }
+    
     var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
+        mapView.delegate = self
         searchBar.delegate = self
         super.viewDidLoad()
         setUp()
@@ -62,8 +69,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UISearchBa
         for i in eventLocation.keys {
             let annotation = MKPointAnnotation()
             let name = Events[i]!["EventName"] as! String
+            let type = Events[i]!["EventType"] as! String
             annotation.coordinate = (eventLocation[i]?.coordinate)!
             annotation.title = name
+            annotation.subtitle = type
             mapView.addAnnotation(annotation)
         }
     }
@@ -100,33 +109,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UISearchBa
         }
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText == "" {
-            return
-        }
-        for i in eventLocation.keys {
-            let address = Events[i]!["Address"] as! String
-            let title = Events[i]!["EventName"] as! String
-            if address.lowercased().contains(searchText.lowercased()) || title.lowercased().contains(searchText.lowercased()) {
-                if let coordinate = eventLocation[i]?.coordinate {
-                    print("reached here in did change")
-                    let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-                    let region = MKCoordinateRegion(center: coordinate, span: span)
-                    self.mapView.setRegion(region, animated: true)
-                }
-
-            } else {
-                return
-            }
-        }
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        locationManager.stopUpdatingLocation()
     }
     
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        if searchBar.text == "" {
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if searchText == "" {
 //            return
 //        }
 //        for i in eventLocation.keys {
-//            let searchText = searchBar.text!
 //            let address = Events[i]!["Address"] as! String
 //            let title = Events[i]!["EventName"] as! String
 //            if address.lowercased().contains(searchText.lowercased()) || title.lowercased().contains(searchText.lowercased()) {
@@ -142,6 +133,32 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UISearchBa
 //            }
 //        }
 //    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        view.endEditing(true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if searchBar.text == "" {
+            return
+        }
+        for i in eventLocation.keys {
+            let searchText = searchBar.text!
+            let address = Events[i]!["Address"] as! String
+            let title = Events[i]!["EventName"] as! String
+            if address.lowercased().contains(searchText.lowercased()) || title.lowercased().contains(searchText.lowercased()) {
+                if let coordinate = eventLocation[i]?.coordinate {
+                    let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+                    let region = MKCoordinateRegion(center: coordinate, span: span)
+                    self.mapView.setRegion(region, animated: true)
+                }
+
+            } else {
+                return
+            }
+        }
+    }
     
 //    func getCoordinate( eventIndex: Int,
 //                        addressString : String,

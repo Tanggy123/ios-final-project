@@ -36,6 +36,7 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
         didSet {
             searchBar.barTintColor = themeColor
             searchBar.delegate = self
+            searchBar.showsCancelButton = true
         }
     }
     
@@ -109,6 +110,11 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
             })
         }
         self.recipeTableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        view.endEditing(true)
     }
 
     

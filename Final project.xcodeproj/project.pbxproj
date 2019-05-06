@@ -529,14 +529,15 @@
 			baseConfigurationReference = 4E6139081BD90F40E2E4DE9E /* Pods-Final project.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P75Q2YKSKR;
+				DEVELOPMENT_TEAM = NKVPS2NQKR;
 				INFOPLIST_FILE = "Final project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "xuqianzhi.Final-project";
+				PRODUCT_BUNDLE_IDENTIFIER = "xuqianzhi.Final-project194993";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -548,14 +549,15 @@
 			baseConfigurationReference = 9FB1CEA6C2B96621A5BE1C4D /* Pods-Final project.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P75Q2YKSKR;
+				DEVELOPMENT_TEAM = NKVPS2NQKR;
 				INFOPLIST_FILE = "Final project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "xuqianzhi.Final-project";
+				PRODUCT_BUNDLE_IDENTIFIER = "xuqianzhi.Final-project194993";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

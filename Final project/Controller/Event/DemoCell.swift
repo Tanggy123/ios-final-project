@@ -46,7 +46,6 @@ class DemoCell: FoldingCell {
         let position = eventCounter! - number! - 1
         if let currVC = currentVC as? MainTableViewController {
             if let event = Events[position] {
-                print("reached here")
                 currVC.eventAddress = event["Address"] as? String
                 currVC.eventDescription = event["Description"] as? String
                 currVC.eventName = event["EventName"] as? String
@@ -55,10 +54,11 @@ class DemoCell: FoldingCell {
                 currVC.eventLiked = event["Liked"] as? Int
                 currVC.eventIndex = event["Index"] as? Int
                 if let stamp = event["Time"] as? Timestamp {
+                    print("reached here")
                     currVC.eventTime = stamp.dateValue()
                 }
-                currVC.performSegue(withIdentifier: "EventDetailSegue", sender: currVC)
             }
+            currVC.performSegue(withIdentifier: "EventDetailSegue", sender: currVC)
         }
         
     }

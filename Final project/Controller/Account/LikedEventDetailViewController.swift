@@ -93,10 +93,14 @@ class LikedEventDetailViewController: UIViewController {
     
     func setEventDateLabel(isSettingAttributes: Bool) {
         if (isSettingAttributes) {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
-            dateFormatter.timeZone = NSTimeZone.local
-            eventDateLabel.text = dateFormatter.string(from: eventTime!)
+            if eventTime == nil {
+                eventDateLabel.text = "Loading..."
+            } else {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+                dateFormatter.timeZone = NSTimeZone.local
+                eventDateLabel.text = dateFormatter.string(from: eventTime!)
+            }
             eventDateLabel.textAlignment = .left
             eventDateLabel.textColor = .lightGray
             eventDateLabel.font = UIFont.systemFont(ofSize: 15)
