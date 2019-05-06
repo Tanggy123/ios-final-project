@@ -46,10 +46,6 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let db = Firestore.firestore()
-        for index in 0..<recipeCounter! {
-            readFromFirebase(db: db, fromCollection: .recipe, fromDocument: "Recipe" + String(index))
-        }
         setUp()
         // Do any additional setup after loading the view.
     }
@@ -57,6 +53,8 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return recipeCounter!
+        print(currArr)
+        print(Recipes)
         return currArr.count
     }
     

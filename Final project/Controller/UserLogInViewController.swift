@@ -87,14 +87,23 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
         if eventCounter == nil || recipeCounter == nil || userCounter == nil {
             return
         }
-        if (userToIndex.count == 0) {
+        if (Users.count == 0) {
             let db = Firestore.firestore()
             for i in 0..<userCounter! {
                 readFromFirebase(db: db, fromCollection: .user, fromDocument: "User" + String(i))
             }
         }
-        if Users.count == 0 {
-            return
+        if Events.count == 0 {
+            let db = Firestore.firestore()
+            for i in 0..<eventCounter! {
+                readFromFirebase(db: db, fromCollection: .event, fromDocument: "Event" + String(i))
+            }
+        }
+        if Recipes.count == 0 {
+            let db = Firestore.firestore()
+            for i in 0..<recipeCounter! {
+                readFromFirebase(db: db, fromCollection: .recipe, fromDocument: "Recipe" + String(i))
+            }
         }
         if let userIndex = userToIndex[userNameTextField.text!] {
             if let userDict = Users[userIndex] as? Dictionary<String, Any> {
@@ -116,7 +125,7 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
     }
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {
-        if (userToIndex.count == 0) {
+        if (Users.count == 0) {
             let db = Firestore.firestore()
             for i in 0..<userCounter! {
                 readFromFirebase(db: db, fromCollection: .user, fromDocument: "User" + String(i))
@@ -126,6 +135,27 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
     
     @IBAction func continueAsGuestButtonTapped(_ sender: UIButton) {
         if eventCounter == nil || recipeCounter == nil || userCounter == nil {
+            return
+        }
+        if (Users.count == 0) {
+            let db = Firestore.firestore()
+            for i in 0..<userCounter! {
+                readFromFirebase(db: db, fromCollection: .user, fromDocument: "User" + String(i))
+            }
+        }
+        if Events.count == 0 {
+            let db = Firestore.firestore()
+            for i in 0..<eventCounter! {
+                readFromFirebase(db: db, fromCollection: .event, fromDocument: "Event" + String(i))
+            }
+        }
+        if Recipes.count == 0 {
+            let db = Firestore.firestore()
+            for i in 0..<recipeCounter! {
+                readFromFirebase(db: db, fromCollection: .recipe, fromDocument: "Recipe" + String(i))
+            }
+        }
+        if Recipes.count == 0 || Events.count == 0 || Users.count == 0 {
             return
         }
         userIsLoggedIn = false
@@ -152,11 +182,26 @@ class UserLogInViewController: VideoSplashViewController, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if userCounter != nil {
-            if (userToIndex.count == 0) {
-                let db = Firestore.firestore()
+            if (Users.count == 0) {
                 for i in 0..<userCounter! {
                     let db = Firestore.firestore()
                     readFromFirebase(db: db, fromCollection: .user, fromDocument: "User" + String(i))
+                }
+            }
+        }
+        if eventCounter != nil {
+            if (Events.count == 0) {
+                for i in 0..<eventCounter! {
+                    let db = Firestore.firestore()
+                    readFromFirebase(db: db, fromCollection: .event, fromDocument: "Event" + String(i))
+                }
+            }
+        }
+        if recipeCounter != nil {
+            if (Recipes.count == 0) {
+                for i in 0..<recipeCounter! {
+                    let db = Firestore.firestore()
+                    readFromFirebase(db: db, fromCollection: .recipe, fromDocument: "Recipe" + String(i))
                 }
             }
         }

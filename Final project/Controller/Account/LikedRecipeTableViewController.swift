@@ -56,8 +56,6 @@ class LikedRecipeTableViewController: UITableViewController {
             cell?.recipeImageView.image = UIImage(named: "duck-breast")
             let recipeIndex = recipes[position]
             recipeAtRow[indexPath.row] = recipeIndex
-            print(Recipes[recipeIndex]!)
-            print(Recipes[recipeIndex]!["Name"])
             cell?.recipeTitleLabel.text = Recipes[recipeIndex]!["Name"] as! String
             cell?.recipeAuthor.text = Recipes[recipeIndex]!["Author"] as! String
         }
