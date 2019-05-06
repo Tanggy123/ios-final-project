@@ -45,16 +45,13 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.recipeTableView.reloadData()
-        for key in Recipes.keys {
-            allArr.append(key)
-        }
-        for key in Recipes.keys {
-            currArr.append(key)
+        for index in 0..<recipeCounter! {
+            readFromFirebase(fromCollection: .recipe, fromDocument: "Recipe" + String(index))
         }
         setUp()
         // Do any additional setup after loading the view.
     }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return recipeCounter!
@@ -169,6 +166,16 @@ class NewRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             self?.recipeTableView.reloadData()
         })
+        for key in Recipes.keys {
+            if !allArr.contains(key) {
+                allArr.append(key)
+            }
+        }
+        for key in Recipes.keys {
+            if !currArr.contains(key) {
+                currArr.append(key)
+            }
+        }
     }
 
     

@@ -153,9 +153,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UISearchBa
                     let region = MKCoordinateRegion(center: coordinate, span: span)
                     self.mapView.setRegion(region, animated: true)
                 }
+                return
 
             } else {
-                return
+                continue
             }
         }
     }

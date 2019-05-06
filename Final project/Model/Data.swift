@@ -97,11 +97,8 @@ public func readFromFirebase(fromCollection collec: FirebaseCollection, fromDocu
                     Recipes[index!] = dict
                 case .count:
                     eventCounter = dict["EventCount"] as! Int
-                    print(eventCounter)
                     recipeCounter = dict["RecipeCount"] as! Int
-                    print(recipeCounter)
                     userCounter = dict["UserCount"] as! Int
-                    print(userCounter)
                 }
             }
         } else {
@@ -113,5 +110,5 @@ public func readFromFirebase(fromCollection collec: FirebaseCollection, fromDocu
 
 public func generateHeightWithStringLenghth(text: String) -> CGFloat{
     print(text.count)
-    return CGFloat(50 * (text.count / 40 + 1))
+    return CGFloat(70 * (text.count / 40 + 1))
 }
